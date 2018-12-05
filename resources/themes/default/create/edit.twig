@@ -1,0 +1,212 @@
+{% extends "v1.layouts.app" %}
+
+{% block content %}
+
+
+
+
+
+<aside id="colorlib-hero" style="min-height: 104px !important;">
+            <div class="flexslider">
+                <ul class="slides">
+                <li style="background-image: url(images/img_bg_2.jpg);">
+                    <div class="overlay"></div>
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-6 col-sm-12 col-md-offset-3 slider-text">
+                                <div class="slider-text-inner text-center">
+                                    <h1>Blog</h1>
+                                    <h2><span><a href="index.html">Home</a> | Blog</span></h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                </ul>
+            </div>
+        </aside>
+
+
+
+        <div id="colorlib-contact">
+            <div class="container">
+
+
+
+
+
+
+
+ <div class="col-sm-12">
+
+
+
+
+
+
+<div class="bg-light">
+<div class="container-fluid" style="max-width: 970px">
+    <div class="col-12s">
+
+        <div class="row">
+            <div class="col-sm-3"></div>
+            <div class="col-sm-9 pl-sm-5 ">
+                <div class="row">
+                    <div class="col-9">
+                        <h5 class="text-dark pt-4">{{ __("اطلاعات تکمیلی") }}</h5>
+                        <p class="text-muted pt-0 mb-2">{{ listing.title }} <a href="{{ listing.url }}" class="small">(view)</a>
+                            {% if not listing.is_published %}
+                                {{ __("تایید نشده!") }}
+                            {% endif %}
+                        </p>
+                        <div class="mb-3">
+                            <span class="badge badge-pill badge-secondary ">{{ __("Listing type") }}: {{ listing.pricing_model.seller_label }}</span>
+                            <span class="badge badge-pill badge-secondary mr-2">{{ __("Category") }}: {{ listing.category.name }}</span>
+                        </div>
+                    </div>
+                    <div class="col-3 pt-4">
+                        {% if not listing.is_published %}
+                        {{ form_model(listing, {'route' : ['create.update', listing], 'class' : 'form', 'method' :
+                        'PUT'}) }}
+                        <input type="submit" name="publish" value="{{ __('تایید')  }}" class="btn   btn-primary float-right">
+                                    {{ form_close() }}
+                            {% else %}
+                                {{  form_model(listing, {'route' : ['create.update', listing], 'class' : 'form', 'method' : 'PUT' }) }}
+                                    {% if listing.is_verified %}
+                                        {% if not module_enabled('listingfee') %}
+                                        <input type="submit" name="draft" value="{{ __('Unpublish') }}" class="btn btn-danger float-right">
+                                        {% else %}
+                                            <div class="float-right text-center">
+                                            <small class="text-muted ">{{ __("Expires") }} {{ listing.expires_at |date("jS M 'y") }}</small><br />
+                                            {% if listing.is_draft %}
+                                                <input type="submit" name="undraft" value="{{ __('Re-enable') }}" class="btn  btn-outline-danger btn-sm">
+                                            {% else %}
+                                                <input type="submit" name="draft" value="{{ __('Disable') }}" class="btn  btn-outline-danger btn-sm">
+                                                <input type="submit" name="renew" value="{{ __('Renew') }}" class="btn  btn-outline-success btn-sm">
+                                            {% endif %}
+                                            </div>
+                                        {% endif %}
+                                    {% else %}
+                                        <input type="button" name="draft" value="{{ __('Pending Verification') }}" class="btn  btn-lg btn-danger float-right" style="cursor: default">
+                                    {% endif %}
+                                    {{ form_close() }}
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3 d-none d-sm-block">
+                   
+                </div>
+            </div>
+
+            <div class="col-sm-9 col-12 pl-sm-5 border-0" style="">
+                {% include 'notifications' %}
+
+                {{ form_model(listing, {'route' : ['create.update', listing], 'class' : 'form', 'method' : 'PUT'}) }}
+                    <a id="details_section"></a>
+                {% include 'create.partials.details' %}
+                <a id="images_section"></a>
+                {% include 'create.partials.images' %}
+
+               <!-- {%  if listings_form | length > 0 %}
+                <a id="additional_section"></a>
+                {% include 'create.partials.additional' %}
+                {% endif %}
+                <a id="pricing_section"></a>
+                {% include 'create.partials.pricing_details' %}
+                {% include 'create.partials.pricing_additional' %}
+                {% include 'create.partials.pricing_shipping' %}
+                {% include 'create.partials.pricing_variants' %}
+                {% include 'create.partials.services' %}
+--<
+                <div class="card mb-4">
+
+                    <div class="card-body">
+
+                        <input type="submit" value="{{ __('ذخیره')  }}" class="btn  btn-primary float-right">
+
+                    </div>
+
+                    {{ form_close() }}
+
+
+                </div>
+
+
+            </div>
+        </div>
+    
+
+
+    <script>
+
+        function show_tags() {
+            $('.tags').each(function (i, obj) {
+                if ($(obj)[0].selectize !== undefined) {
+                    $(obj)[0].selectize.destroy();
+                }
+            });
+
+            $('.tags').selectize({
+                delimiter: ',',
+                persist: false,
+                create: function (input) {
+                    return {
+                        value: input,
+                        text: input
+                    }
+                }
+            });
+        }
+
+        $('.repeater-default').repeater({});
+        $('.repeater-variation-option').repeater({
+            show: function () {
+                show_tags();
+                $(this).slideDown();
+            }
+        })
+        show_tags();
+
+
+        $("#sidebar").stick_in_parent({offset_top: 20});
+
+        $('#sidebar').activescroll({
+            active: "active",
+            offset: 20,
+            animate: 1000
+        });
+    </script>
+
+
+
+
+
+
+
+ </div>
+       
+
+
+
+
+            </div>
+        </div>
+       
+        
+
+
+
+
+
+
+
+
+
+
+
+
+    {% endblock %}
+
+
+

@@ -1,0 +1,30 @@
+{% extends "account.blog" %}
+
+
+{% block user_area %}
+
+
+
+
+<form action="{{ route('account.updateProductCategory',cat['id']) }}" method="post">
+
+<input type="hidden" name="_token" value="{{ csrf_token() }}">
+
+
+<div class="form-row">
+
+    <div class="form-group col-md-6">
+        
+        <input placeholder="name" type="text" name="name" class="form-control" value="{{ cat['name'] }}">
+
+    </div>
+</div>
+
+
+
+<a href="{{ route('account.getProductCategory') }}" class="btn btn-secondary">Back</a>
+        <input class="btn btn-primary" type="submit" value="Save">
+       
+        
+    </form>
+{% endblock %}

@@ -1,0 +1,81 @@
+{% extends "account.blog" %}
+
+
+{% block user_area %}
+
+
+    
+<form action="{{ route('account.updateNews',str_slug(post['title'],"-")) }}" method="post" enctype="multipart/form-data">
+
+<input type="hidden" name="_token" value="{{ csrf_token() }}">
+<input type="hidden" name="old_title" value="{{ post['title'] }}">
+<input type="hidden" name="posted_at" value="{{ post['posted_at'] }}">
+
+
+
+<div class="form-row">
+<div class="row">
+    <div class="form-group col-md-6">
+        
+
+    <input placeholder="title" type="text" name="title" class="form-control" value="{{ post['title'] }}">
+
+    </div>
+
+   <div class="form-group col-md-6">
+        <img src="{{ post['thumb_thumbnail_url'] }}" />
+        <input type="file" name="image" id="image">
+        {{ post['top'] }}
+{% if (post['top']==1) %}
+
+<input type="hidden" name="top" value="0" class="form-control" />
+
+<input type="checkbox" checked name="top" value="1" class="form-control" /> 
+
+        {% else %}
+
+<input type="hidden" name="top" value="0" class="form-control" />
+
+<input type="checkbox" name="top" value="1" class="form-control" /> 
+
+
+        {% endif %}
+
+
+    </div>
+</div>
+    <div class="form-group col-md-12">
+      <textarea name="post-ckeditor" id="post-ckeditor">
+      {{ post['content'] }}
+      </textarea>
+
+    </div>
+
+    <select id="cat_id" name="cat_id">
+
+                  {% for cat in categories %}
+  
+  {% if cat['id']==post['cat_id'] %}
+         <option selected="selected" value="{{ cat['id'] }}">{{ cat['content'] }}</option>
+    
+    {% else %}
+         <option value="{{ cat['id'] }}">{{ cat['content'] }}</option>
+    {% endif %}
+
+  
+
+                
+
+             {% endfor %}
+</select>
+
+</div>
+
+
+
+<a href="{{ route('account.getCategory') }}" class="btn btn-secondary">Back</a>
+        <input class="btn btn-primary" type="submit" value="Save">
+       
+        
+    {{ form_close() }}
+{% endblock %}

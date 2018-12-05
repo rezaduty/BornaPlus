@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>برنا پلاس</title>
+    <meta name="csrf-token" content="{{ csrf_token() }}" id="csrf-token" ic-global-include="#csrf-token">
+    
+
+<script src="{{ asset('js/ckeditor/ckeditor.js') }}"></script>
+
+
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons"
+  />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+
+  <!-- Markazi Text font include just for persian demo purpose, don't include it in your project -->
+  <link href="https://fonts.googleapis.com/css?family=Cairo&amp;subset=arabic" rel="stylesheet">
+
+  <!-- CSS Files -->
+  <link href="{{ asset('themes/default/css/material-dashboard.css?v=1') }}" rel="stylesheet" />
+  <link href="{{ asset('themes/default/css/material-dashboard-rtl.css') }}" rel="stylesheet" />
+  
+
+  <!-- Style Just for persian demo purpose, don't include it in your project -->
+  <style>
+    body,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    .h1,
+    .h2,
+    .h3,
+    .h4 {
+      font-family: "iransans";
+    }
+    .sidebar{
+      box-shadow:1px 1px 1px !important;
+      background: url("https://images.unsplash.com/photo-1536816579748-4ecb3f03d72a?ixlib=rb-0.3.5…jEyMDd9&s=51f0883…&auto=format&fit=crop&w=634&q=80") !important;
+      background-size: contain;
+    }
+  </style>
+
+</head>
+
+<body>
+<div class="wrapper ">
+    <div class="sidebar" data-color="purple" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
+      <!--
+        Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
+
+        Tip 2: you can also add an image using data-image tag
+    -->
+      <div class="logo">
+        <a href="http://www.creative-tim.com" class="simple-text logo-normal">
+          برنا پلاس
+        </a>
+      </div>
+      <div class="sidebar-wrapper">
+        <ul class="nav">
+          <li class="nav-item {{ index }}">
+            <a class="nav-link" href="/panel/dashboard">
+              <i class="material-icons">dashboard</i>
+              <p>صفحه اصلی</p>
+            </a>
+          </li>
+          <li class="nav-item {{ newss }}">
+            <a class="nav-link" href="/panel/dashboard/news">
+              <i class="material-icons">add</i>
+              <p>اخبار</p>
+            </a>
+          </li>
+            <li class="nav-item {{ category_news }}">
+            <a class="nav-link" href="/panel/dashboard/category">
+              <i class="material-icons">category</i>
+              <p>دسته بندی اخبار</p>
+            </a>
+          </li>
+          <li class="nav-item {{ product_active }}">
+            <a class="nav-link" href="/panel/dashboard/product">
+              <i class="material-icons">add</i>
+              <p>محصولات</p>
+            </a>
+          </li>
+                     <li class="nav-item {{ product_category }}">
+            <a class="nav-link" href="/panel/dashboard/productcategory">
+              <i class="material-icons">category</i>
+              <p>دسته بندی محصولات</p>
+            </a>
+          </li>
+           <li class="nav-item {{ product_price_active }}">
+            <a class="nav-link" href="/panel/dashboard/productprice">
+              <i class="material-icons">add</i>
+              <p>قیمت محصولات</p>
+            </a>
+          </li>
+           <li class="nav-item {{ kmscategory_active }}">
+            <a class="nav-link" href="/panel/dashboard/kmscategory">
+              <i class="material-icons">category</i>
+              <p>دسته بندی آموزش ها</p>
+            </a>
+          </li>
+          <li class="nav-item {{ kms_active }}">
+            <a class="nav-link" href="/panel/dashboard/kms">
+              <i class="material-icons">description</i>
+              <p>آموزش ها</p>
+            </a>
+          </li>
+
+          <li class="nav-item {{ contact_active }}">
+            <a class="nav-link" href="/panel/dashboard/contact">
+              <i class="material-icons">record_voice_over</i>
+              <p>پیام ها</p>
+            </a>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+    <div class="main-panel">
+      <!-- Navbar -->
+      <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
+        <div class="container-fluid">
+          <div class="navbar-wrapper">
+            <a class="navbar-brand" href="/panel/dashboard">داشبورد</a>
+          </div>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="navbar-toggler-icon icon-bar"></span>
+            <span class="navbar-toggler-icon icon-bar"></span>
+            <span class="navbar-toggler-icon icon-bar"></span>
+          </button>
+          <div class="collapse navbar-collapse justify-content-end">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" href="/panel/dashboard/contact">
+                  <i class="material-icons">message</i>
+                  <p class="d-lg-none d-md-block">
+                    آمارها
+                  </p>
+                </a>
+              </li>
+
+                        <li class="nav-item">
+            <a class="nav-link" href="/panel/dashboard/access">
+              <i class="material-icons">record_voice_over</i>
+              <p>تنظیمات تماس</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/panel/dashboard/social">
+              <i class="material-icons">assignment_ind</i>
+              <p>شبکه های اجتماعی</p>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="/panel/dashboard/about">
+              <i class="material-icons">help</i>
+              <p>درباره ما</p>
+            </a>
+          </li>
+ <li class="nav-item">
+            <a class="nav-link" target="_blank" href="/">
+              <i class="material-icons">home</i>
+              <p>صفحه اصلی وبسایت</p>
+            </a>
+          </li>
+
+              <!--<li class="nav-item dropdown">
+                <a class="nav-link" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <i class="material-icons">notifications</i>
+                  <span class="notification">۵</span>
+                  <p class="d-lg-none d-md-block">
+                    اعلان‌ها
+                  </p>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                  <a class="dropdown-item" href="#">محمدرضا به ایمیل شما پاسخ داد</a>
+                  <a class="dropdown-item" href="#">شما ۵ وظیفه جدید دارید</a>
+                  <a class="dropdown-item" href="#">از حالا شما با علیرضا دوست هستید</a>
+                  <a class="dropdown-item" href="#">اعلان دیگر</a>
+                  <a class="dropdown-item" href="#">اعلان دیگر</a>
+                </div>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#pablo">
+                  <i class="material-icons">person</i>
+                  <p class="d-lg-none d-md-block">
+                    حساب کاربری
+                  </p>
+                </a>
+              </li>-->
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <!-- End Navbar -->
+      <div class="content">
+				{% block content %}{% endblock %}
+                
+        </div>
+    </div>
+
+	<script src="https://cdn.jsdelivr.net/npm/alertify.js@1.0.12/dist/js/alertify.min.js"></script>
+
+
+
+
+  <footer class="footer">
+          <div class="container-fluid">
+            <nav class="float-left">
+              <ul>
+                <li>
+                  <a href="https://www.creative-tim.com">
+                    تیم خلاق
+                  </a>
+                </li>
+                <li>
+                  <a href="https://creative-tim.com/presentation">
+                    درباره ما
+                  </a>
+                </li>
+                <li>
+                  <a href="http://blog.creative-tim.com">
+                    بلاگ
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.creative-tim.com/license">
+                    اجازه نامه
+                  </a>
+                </li>
+              </ul>
+            </nav>
+            <div class="copyright float-right">
+              &copy;
+              <script>
+                document.write(new Date().getFullYear())
+              </script>
+              
+            </div>
+          </div>
+        </footer>
+      </div>
+    </div>
+    <!--   Core JS Files   -->
+    {{ asset('') }}
+    <script src="{{ asset('themes/default/js/core/jquery.min.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('themes/default/js/core/popper.min.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('themes/default/js/core/bootstrap-material-design.min.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('themes/default/js/plugins/perfect-scrollbar.jquery.min.js') }}"></script>
+    <!--  Google Maps Plugin    -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+    <!-- Chartist JS -->
+    <script src="{{ asset('themes/default/js/plugins/chartist.min.js') }}"></script>
+    <!--  Notifications Plugin    -->
+    <script src="{{ asset('themes/default/js/plugins/bootstrap-notify.js') }}"></script>
+    <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
+    <script src="{{ asset('themes/default/js/material-dashboard.js') }}" type="text/javascript"></script>
+    
+        <script src="{{ asset('themes/default/js/plugins/chartist-plugin-pointlabels.js') }}" type="text/javascript"></script>
+
+    <script src="{{ asset('themes/default/js/plugins/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js') }}" type="text/javascript"></script>
+
+
+    <script>
+      $(document).ready(function () {
+        /*md.initDashboardPageCharts();*/
+{% set maxValue = 0 %}
+
+{% for product in rasprice %} 
+    {% set maxValue = max(product['average'], maxValue) %}
+{% endfor %} 
+
+
+
+
+    if ($('#dailySalesChart').length != 0 || $('#completedTasksChart').length != 0 || $('#websiteViewsChart').length != 0) {
+      /* ----------==========     Daily Sales Chart initialization    ==========---------- */
+
+      dataDailySalesChart = {
+        labels: ["{{ rasprice[0]['posted_at'] }}", "{{ rasprice[1]['posted_at']|slice(5, 6) }}","{{ rasprice[2]['posted_at']|slice(5, 6) }}", "{{ rasprice[3]['posted_at']|slice(5, 6) }}", "{{ rasprice[4]['posted_at']|slice(5, 6) }}"],
+        series: [
+          ["{{ rasprice[0]['average'] }}", "{{ rasprice[1]['average'] }}","{{ rasprice[2]['average'] }}", "{{ rasprice[3]['average'] }}","{{ rasprice[4]['average'] }}"]
+        ]
+      };
+  
+plugins = {
+  plugins: [
+    Chartist.plugins.ctPointLabels({
+  labelOffset: {
+    x: 10,
+    y: -10
+  },
+  labelInterpolationFnc: function(value) {return value}
+    })
+  ],
+
+        lineSmooth: Chartist.Interpolation.cardinal({
+          tension: 500
+        }),
+        low: 0,
+        showArea: true,
+        high: {{maxValue}}, // creative tim: we recommend you to set the high sa the biggest value + something for a better look
+        chartPadding: {
+          top: 20,
+          right: 42,
+          bottom: 0,
+          left: 0
+        },
+
+};
+
+      
+
+{% set maxValue = 0 %}
+
+{% for product in plusprice %} 
+    {% set maxValue = max(product['average'], maxValue) %}
+{% endfor %} 
+
+      var dailySalesChart = new Chartist.Line('#dailySalesChart', dataDailySalesChart,plugins);
+
+      md.startAnimationForLineChart(dailySalesChart);
+
+
+
+      /* ----------==========     Completed Tasks Chart initialization    ==========---------- */
+
+      dataCompletedTasksChart = {
+         labels: ["{{ plusprice[0]['posted_at']|slice(5, 6) }}", "{{ plusprice[1]['posted_at']|slice(5, 6) }}","{{ plusprice[2]['posted_at']|slice(5, 6) }}", "{{ plusprice[3]['posted_at']|slice(5, 6) }}","{{ plusprice[4]['posted_at']|slice(5, 6) }}"],
+        series: [
+          ["{{ plusprice[0]['average'] }}", "{{ plusprice[1]['average'] }}","{{ plusprice[2]['average'] }}", "{{ plusprice[3]['average'] }}","{{ plusprice[4]['average'] }}"]
+        ]
+      };
+
+     plugins = {
+  plugins: [
+    Chartist.plugins.ctPointLabels({
+  labelOffset: {
+    x: 10,
+    y: -10
+  },
+  labelInterpolationFnc: function(value) {return value}
+    })
+  ],
+
+        lineSmooth: Chartist.Interpolation.cardinal({
+          tension: 500
+        }),
+        low: 0,
+        showArea: true,
+        high: {{maxValue}}, // creative tim: we recommend you to set the high sa the biggest value + something for a better look
+        chartPadding: {
+          top: 20,
+          right: 0,
+          bottom: 0,
+          left: 20
+        }
+      };
+
+
+
+
+
+      var completedTasksChart = new Chartist.Line('#completedTasksChart', dataCompletedTasksChart, plugins);
+
+      // start animation for the Completed Tasks Chart - Line Chart
+      md.startAnimationForLineChart(completedTasksChart);
+
+
+      /* ----------==========     Emails Subscription Chart initialization    ==========---------- */
+
+      var dataWebsiteViewsChart = {
+            labels: ["{{ morghzendeprice[0]['posted_at']|slice(5, 6) }}", "{{ morghzendeprice[1]['posted_at']|slice(5, 6) }}","{{ morghzendeprice[2]['posted_at']|slice(5, 6) }}", "{{ morghzendeprice[3]['posted_at']|slice(5, 6) }}","{{ morghzendeprice[4]['posted_at']|slice(5, 6) }}"],
+        series: [
+          ["{{ morghzendeprice[0]['average'] }}", "{{ morghzendeprice[1]['average'] }}","{{ morghzendeprice[2]['average'] }}", "{{ morghzendeprice[3]['average'] }}","{{ morghzendeprice[4]['average'] }}"]
+        ]
+      };
+      var optionsWebsiteViewsChart = {
+        axisX: {
+          showGrid: false
+        },
+        low: 0,
+        high: {{maxValue}},
+        chartPadding: {
+          top: 20,
+          right: 5,
+          bottom: 0,
+          left: 20
+        }
+      };
+      var responsiveOptions = [
+        ['screen and (max-width: 640px)', {
+          seriesBarDistance: 5,
+          axisX: {
+            labelInterpolationFnc: function(value) {
+              return value[0];
+            }
+          }
+        }]
+      ];
+      var websiteViewsChart = Chartist.Line('#websiteViewsChart', dataWebsiteViewsChart, optionsWebsiteViewsChart, responsiveOptions);
+
+      //start animation for the Emails Subscription Chart
+      md.startAnimationForBarChart(websiteViewsChart);
+    }
+  
+
+
+
+      });
+    </script>
+
+
+    <script>
+
+ var options = {
+    filebrowserImageBrowseUrl: '/laravel-filemanager?type=Images',
+    filebrowserImageUploadUrl: '/laravel-filemanager/upload?type=Images&_token=',
+    filebrowserBrowseUrl: '/laravel-filemanager?type=Files',
+    filebrowserUploadUrl: '/laravel-filemanager/upload?type=Files&_token='
+  };
+  
+        CKEDITOR.replace( 'post-ckeditor' ,options);
+    
+    CKEDITOR.config.language = "fa";
+    CKEDITOR.config.skin = "office2013";
+
+
+</script>
+
+
+</body>
+
+</html>
+

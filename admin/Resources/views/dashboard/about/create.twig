@@ -1,0 +1,83 @@
+
+{% extends "panel::layouts.dashboard" %}
+
+
+{% block content %}
+
+
+    {{ form_open({'route' :'panel.storeAbout', 'method' :'POST', 'files' : 'true'}) }}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-8">
+              <div class="card">
+                <div class="card-header card-header-primary">
+                  <h4 class="card-title">درباره ما</h4>
+                  <p class="card-category"></p>
+                </div>
+                <div class="card-body">
+                  <form>
+
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">عنوان</label>
+                          <input type="text" name="title" required class="form-control" value="">
+                        </div>
+                      </div>
+
+                    </div>
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">عکس اصلی</label>
+                          <button md-mini-fab type="button" onclick="document.getElementById('image').click()">
+  <label for="image"><md-icon>add</md-icon></label>
+</button>
+<input type="file" name="image" id="image" style="display:none;">
+                          
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <label>متن اصلی</label>
+                          <div class="form-group">
+                            <label class="bmd-label-floating"> </label>
+                            <textarea name="post-ckeditor" required class="form-control" id="post-ckeditor"></textarea>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <a href="{{ route('panel.getAbout') }}" class="btn btn-secondary">برگشت</a>
+        <input class="btn btn-primary" type="submit" value="درج">
+                    <div class="clearfix"></div>
+                  </form>
+                </div>
+              </div>
+            </div>
+            
+            </div>
+          </div>
+        </div>
+
+
+
+        
+    {{ form_close() }}
+{% endblock %}

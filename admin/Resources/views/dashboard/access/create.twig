@@ -1,0 +1,74 @@
+
+{% extends "panel::layouts.dashboard" %}
+
+
+{% block content %}
+
+
+    {{ form_open({'route' :'panel.storeAccess', 'method' :'POST'}) }}
+
+
+
+
+
+  <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-8">
+              <div class="card">
+                <div class="card-header card-header-primary">
+                  <h4 class="card-title">تنظیمات تماس با ما</h4>
+                  <p class="card-category"></p>
+                </div>
+                <div class="card-body">
+                  <form>
+
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">شماره تماس</label>
+                          <input type="text" name="phone" required class="form-control" value="">
+                        </div>
+                      </div>
+                    </div>
+
+
+                      <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">ایمیل</label>
+                          <input type="text" name="email" required class="form-control" value="">
+                        </div>
+                      </div>
+                      </div>
+
+                      <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">آدرس</label>
+                          <input type="text" name="address" required class="form-control" value="">
+                        </div>
+                      </div>
+                      </div>
+
+                      
+                      
+
+                   
+
+                    <div class="clearfix"></div>
+
+                  </form>
+                </div>
+              </div>
+                                  <a href="{{ route('panel.getAccess') }}" class="btn btn-secondary">برگشت</a>
+        <input class="btn btn-primary" type="submit" value="درج">
+            </div>
+            
+            </div>
+          </div>
+        </div>
+
+
+        
+    {{ form_close() }}
+{% endblock %}
