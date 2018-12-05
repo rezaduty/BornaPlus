@@ -1,0 +1,512 @@
+{% extends "v1.layouts.app" %}
+
+{% block content %}
+
+
+		<aside id="colorlib-hero" style="min-height: 96px;">
+
+			
+		</aside>
+		
+
+
+		
+		<div id="colorlib-schedule" class="colorlib-light-grey">
+			<div class="container">
+				<div class="row">
+					<div class="schedule text-center ">
+						<div class="col-md-12">
+							
+
+
+
+<div class="col-md-12">
+      <!-- Nav tabs -->
+      <div class="tabl-card">
+        <ul class="nav nav-tabs" role="tablist">
+          <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">مرغ زنده</a></li>
+          <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">جوجه گوشتی</a></li>
+          <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">تخم مرغ</a></li>
+          <!--<li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">سکه</a></li>-->
+        </ul>
+
+        <!-- Tab panes -->
+        <div class="tab-content">
+          <div role="tabpanel" class="tab-pane active" id="home">
+          	
+
+
+	<div class="schedule-flex">
+							
+									<div class="col-3">
+
+
+									<div class="span5">
+							            <table class="table table-bordered">
+							                  <thead>
+							                  <tr>
+							                      <th>عنوان</th>
+							                      <th>تاریخ</th>
+							                      <th>قیمت</th>
+							                      <th>وضیعت</th>                                          
+							                  </tr>
+							              </thead>   
+							              <tbody>
+							              <tr></tr>
+							              {% for key,value in morghzende %}
+							              {% if loop.index>1 %}
+							                <tr>
+							                    <td>{{ value['name'] }}</td>
+							                    <td>{{ value['posted_at'] }}</td>
+							                    <td>{{ value['average'] }}</td>
+							                    <td><span class="label label-success"><a href="price/{{ value['name'] }}" target="_blank">بیشتر</a></span>
+							                    </td>                                      
+							                </tr> 
+							               {% endif %}
+							               {% endfor %}                                 
+							              </tbody>
+							            </table>
+							            </div>
+
+								</div>
+							
+								
+	
+							
+
+						</div>
+
+
+          </div>
+          <div role="tabpanel" class="tab-pane" id="profile">
+          			<div class="schedule-flex">
+							
+									<div class="col-3">
+
+
+									<div class="span5">
+							           <table class="table table-bordered">
+							                  <thead>
+							                  <tr>
+							                      <th>عنوان</th>
+							                      <th>تاریخ</th>
+							                      <th>قیمت</th>
+							                      <th>وضیعت</th>                                          
+							                  </tr>
+							              </thead>   
+							              <tbody>
+							                {% for key,value in kab %}
+							                 {% if loop.index>1 %}
+							                <tr>
+							                    <td>{{ value['name'] }}</td>
+							                    <td>{{ value['posted_at'] }}</td>
+							                    <td>{{ value['average'] }}</td>
+							                    <td><span class="label label-success"><a href="price/{{ value['name'] }}" target="_blank">بیشتر</a></span></td>                                       
+							                </tr> 
+							               {% endif %}
+							               {% endfor %}                                  
+							              </tbody>
+							            </table>
+							            </div>
+
+								</div>
+
+
+								&nbsp;&nbsp;&nbsp;
+									<div class="col-3">
+
+
+									<div class="span5">
+							           <table class="table table-bordered">
+							                  <thead>
+							                  <tr>
+							                      <th>عنوان</th>
+							                      <th>تاریخ</th>
+							                      <th>قیمت</th>
+							                      <th>وضیعت</th>                                          
+							                  </tr>
+							              </thead>   
+							              <tbody>
+							                 {% for key,value in plus %}
+							                 {% if loop.index>1 %}
+							                <tr>
+							                    <td>{{ value['name'] }}</td>
+							                    <td>{{ value['posted_at'] }}</td>
+							                    <td>{{ value['average'] }}</td>
+							                    <td><span class="label label-success"><a href="price/{{ value['name'] }}" target="_blank">بیشتر</a></span></td>                                       
+							                </tr> 
+							               {% endif %}
+							               {% endfor %}                             
+							              </tbody>
+							            </table>
+							            </div>
+
+								</div>
+&nbsp;&nbsp;&nbsp;
+									<div class="col-3">
+
+
+									<div class="span5">
+							           <table class="table table-bordered">
+							                  <thead>
+							                  <tr>
+							                      <th>عنوان</th>
+							                      <th>تاریخ</th>
+							                      <th>قیمت</th>
+							                      <th>وضیعت</th>                                          
+							                  </tr>
+							              </thead>   
+							              <tbody>
+							                 {% for key,value in lohmen %}
+							                 {% if loop.index>1 %}
+							                <tr>
+							                    <td>{{ value['name'] }}</td>
+							                    <td>{{ value['posted_at'] }}</td>
+							                    <td>{{ value['average'] }}</td>
+							                    <td><span class="label label-success"><a href="price/{{ value['name'] }}" target="_blank">بیشتر</a></span></td>                                       
+							                </tr> 
+							               {% endif %}
+							               {% endfor %}                             
+							              </tbody>
+							            </table>
+							            </div>
+
+								</div>
+								&nbsp;&nbsp;&nbsp;
+									<div class="col-3">
+
+
+									<div class="span5">
+							           <table class="table table-bordered">
+							                  <thead>
+							                  <tr>
+							                      <th>عنوان</th>
+							                      <th>تاریخ</th>
+							                      <th>قیمت</th>
+							                      <th>وضیعت</th>                                          
+							                  </tr>
+							              </thead>   
+							              <tbody>
+							                 {% for key,value in ras %}
+							                {% if loop.index>1 %}
+							                <tr>
+							                    <td>{{ value['name'] }}</td>
+							                    <td>{{ value['posted_at'] }}</td>
+							                    <td>{{ value['average'] }}</td>
+							                    <td><span class="label label-success"><a href="price/{{ value['name'] }}" target="_blank">بیشتر</a></span></td>                                       
+							                </tr> 
+							               {% endif %}
+							               {% endfor %}                             
+							              </tbody>
+							            </table>
+							            </div>
+
+								</div>
+
+
+
+
+							</div>
+
+          </div>
+          <div role="tabpanel" class="tab-pane" id="messages">
+          			<div class="schedule-flex">
+							
+									
+									<div class="col-3">
+
+
+									<div class="span5">
+							           <table class="table table-bordered">
+							                  <thead>
+							                  <tr>
+							                      <th>عنوان</th>
+							                      <th>تاریخ</th>
+							                      <th>قیمت</th>
+							                      <th>وضیعت</th>                                          
+							                  </tr>
+							              </thead>   
+							              <tbody>
+							                 {% for key,value in nine %}
+							                {% if loop.index>1 %}
+							                <tr>
+							                    <td>{{ value['name'] }}</td>
+							                    <td>{{ value['posted_at'] }}</td>
+							                    <td>{{ value['average'] }}</td>
+							                    <td><span class="label label-success"><a href="price/{{ value['name'] }}" target="_blank">بیشتر</a></span></td>                                       
+							                </tr> 
+							               {% endif %}
+							               {% endfor %}                             
+							              </tbody>
+							            </table>
+							            </div>
+
+								</div>
+								&nbsp;&nbsp;&nbsp;
+								<div class="col-3">
+
+
+									<div class="span5">
+							           <table class="table table-bordered">
+							                  <thead>
+							                  <tr>
+							                      <th>عنوان</th>
+							                      <th>تاریخ</th>
+							                      <th>قیمت</th>
+							                      <th>وضیعت</th>                                          
+							                  </tr>
+							              </thead>   
+							              <tbody>
+							                 {% for key,value in zeroten %}
+							                {% if loop.index>1 %}
+							                <tr>
+							                    <td>{{ value['name'] }}</td>
+							                    <td>{{ value['posted_at'] }}</td>
+							                    <td>{{ value['average'] }}</td>
+							                    <td><span class="label label-success"><a href="price/{{ value['name'] }}" target="_blank">بیشتر</a></span></td>                                       
+							                </tr> 
+							               {% endif %}
+							               {% endfor %}                             
+							              </tbody>
+							            </table>
+							            </div>
+
+								</div>
+
+								&nbsp;&nbsp;&nbsp;
+								<div class="col-3">
+
+
+									<div class="span5">
+							           <table class="table table-bordered">
+							                  <thead>
+							                  <tr>
+							                      <th>عنوان</th>
+							                      <th>تاریخ</th>
+							                      <th>قیمت</th>
+							                      <th>وضیعت</th>                                          
+							                  </tr>
+							              </thead>   
+							              <tbody>
+							                 {% for key,value in ten %}
+							                {% if loop.index>1 %}
+							                <tr>
+							                    <td>{{ value['name'] }}</td>
+							                    <td>{{ value['posted_at'] }}</td>
+							                    <td>{{ value['average'] }}</td>
+							                    <td><span class="label label-success"><a href="price/{{ value['name'] }}" target="_blank">بیشتر</a></span></td>                                       
+							                </tr> 
+							               {% endif %}
+							               {% endfor %}                             
+							              </tbody>
+							            </table>
+							            </div>
+
+								</div>
+								&nbsp;&nbsp;&nbsp;
+								<div class="col-3">
+
+
+									<div class="span5">
+							           <table class="table table-bordered">
+							                  <thead>
+							                  <tr>
+							                      <th>عنوان</th>
+							                      <th>تاریخ</th>
+							                      <th>قیمت</th>
+							                      <th>وضیعت</th>                                          
+							                  </tr>
+							              </thead>   
+							              <tbody>
+							                 {% for key,value in zeroeleven %}
+							                {% if loop.index>1 %}
+							                <tr>
+							                    <td>{{ value['name'] }}</td>
+							                    <td>{{ value['posted_at'] }}</td>
+							                    <td>{{ value['average'] }}</td>
+							                    <td><span class="label label-success"><a href="price/{{ value['name'] }}" target="_blank">بیشتر</a></span></td>                                       
+							                </tr> 
+							               {% endif %}
+							               {% endfor %}                             
+							              </tbody>
+							            </table>
+							            </div>
+
+								</div>
+								&nbsp;&nbsp;&nbsp;
+								<div class="col-3">
+
+
+									<div class="span5">
+							           <table class="table table-bordered">
+							                  <thead>
+							                  <tr>
+							                      <th>عنوان</th>
+							                      <th>تاریخ</th>
+							                      <th>قیمت</th>
+							                      <th>وضیعت</th>                                          
+							                  </tr>
+							              </thead>   
+							              <tbody>
+							                 {% for key,value in eleven %}
+							                {% if loop.index>1 %}
+							                <tr>
+							                    <td>{{ value['name'] }}</td>
+							                    <td>{{ value['posted_at'] }}</td>
+							                    <td>{{ value['average'] }}</td>
+							                    <td><span class="label label-success"><a href="price/{{ value['name'] }}" target="_blank">بیشتر</a></span></td>                                       
+							                </tr> 
+							               {% endif %}
+							               {% endfor %}                             
+							              </tbody>
+							            </table>
+							            </div>
+
+								</div>
+								&nbsp;&nbsp;&nbsp;
+								<div class="col-3">
+
+
+									<div class="span5">
+							           <table class="table table-bordered">
+							                  <thead>
+							                  <tr>
+							                      <th>عنوان</th>
+							                      <th>تاریخ</th>
+							                      <th>قیمت</th>
+							                      <th>وضیعت</th>                                          
+							                  </tr>
+							              </thead>   
+							              <tbody>
+							                 {% for key,value in zerotwelve %}
+							                {% if loop.index>1 %}
+							                <tr>
+							                    <td>{{ value['name'] }}</td>
+							                    <td>{{ value['posted_at'] }}</td>
+							                    <td>{{ value['average'] }}</td>
+							                    <td><span class="label label-success"><a href="price/{{ value['name'] }}" target="_blank">بیشتر</a></span></td>                                       
+							                </tr> 
+							               {% endif %}
+							               {% endfor %}                             
+							              </tbody>
+							            </table>
+							            </div>
+
+								</div>
+								&nbsp;&nbsp;&nbsp;
+								<div class="col-3">
+
+
+									<div class="span5">
+							           <table class="table table-bordered">
+							                  <thead>
+							                  <tr>
+							                      <th>عنوان</th>
+							                      <th>تاریخ</th>
+							                      <th>قیمت</th>
+							                      <th>وضیعت</th>                                          
+							                  </tr>
+							              </thead>   
+							              <tbody>
+							                 {% for key,value in tweleve %}
+							                {% if loop.index>1 %}
+							                <tr>
+							                    <td>{{ value['name'] }}</td>
+							                    <td>{{ value['posted_at'] }}</td>
+							                    <td>{{ value['average'] }}</td>
+							                    <td><span class="label label-success"><a href="price/{{ value['name'] }}" target="_blank">بیشتر</a></span></td>                                       
+							                </tr> 
+							               {% endif %}
+							               {% endfor %}                             
+							              </tbody>
+							            </table>
+							            </div>
+
+								</div>
+								&nbsp;&nbsp;&nbsp;
+								<div class="col-3">
+
+
+									<div class="span5">
+							           <table class="table table-bordered">
+							                  <thead>
+							                  <tr>
+							                      <th>عنوان</th>
+							                      <th>تاریخ</th>
+							                      <th>قیمت</th>
+							                      <th>وضیعت</th>                                          
+							                  </tr>
+							              </thead>   
+							              <tbody>
+							                 {% for key,value in zerothirteen %}
+							                {% if loop.index>1 %}
+							                <tr>
+							                    <td>{{ value['name'] }}</td>
+							                    <td>{{ value['posted_at'] }}</td>
+							                    <td>{{ value['average'] }}</td>
+							                    <td><span class="label label-success"><a href="price/{{ value['name'] }}" target="_blank">بیشتر</a></span></td>                                       
+							                </tr> 
+							               {% endif %}
+							               {% endfor %}                             
+							              </tbody>
+							            </table>
+							            </div>
+
+								</div>
+
+								
+
+
+
+
+							</div>
+          </div>
+          <div role="tabpanel" class="tab-pane" id="settings">
+          		<div class="schedule-flex">
+							
+									<div class="col-3">
+
+
+									<div class="span5">
+							           <table class="table table-bordered">
+							                  <thead>
+							                  <tr>
+							                      <th>عنوان</th>
+							                      <th>تاریخ</th>
+							                      <th>قیمت</th>
+							                      <th>وضیعت</th>                                          
+							                  </tr>
+							              </thead>   
+							              <tbody>
+							                <tr>
+							                    <td>لورم لورم</td>
+							                    <td>۱۳۹۷/۰۹/۰۶</td>
+							                    <td>۸۸۰۰ هزار تومان</td>
+							                    <td><span class="label label-success"><a href="price/{{ value['name'] }}" target="_blank">بیشتر</a></span></td>                                       
+							                </tr>                                  
+							              </tbody>
+							            </table>
+							            </div>
+
+								</div>
+							</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+						</div>
+					
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+
+{% endblock %}

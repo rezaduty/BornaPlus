@@ -1,0 +1,35 @@
+{% extends "layouts.app" %}
+
+{% block content %}
+    <div class="container " data-turboliks="false">
+        <div class="row flex-column pt-5 mt-5 align-items-center">
+            <div class="col-lg-6 col-sm-10 col-xs-6" style="position: relative">
+
+                {% include 'notifications' %}
+
+                <h5>حساب کاربری شما با موفقیت فعال شد</h5>
+                <p id="redirect_text">به طور خودکار تا ۵ ثانیه دیگر به صفحه اصلی هدایت خواهید شد</p>
+                <a href="{{ route('home') }}" class="btn btn-primary">صفحه اصلی</a>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(document).ready(function () {
+            window.setTimeout(function () {
+                window.location.href = "{{ url }}";
+            }, 5000);
+        });
+    </script>
+{% endblock %}
+
+{% block navbar %}
+    <a href="{{url_previous(route('home'))}}" class="close-btn" style="position: absolute; top: 20px; right: 20px;"><i class="mdi mdi-close text-muted" style="font-size: 30px;"></i></a>
+{% endblock %}
+
+{% block footer %}
+    <footer class="bg-white border-0" >
+    </footer>
+{% endblock %}
+
+{% block search_bar %}
+{% endblock %}

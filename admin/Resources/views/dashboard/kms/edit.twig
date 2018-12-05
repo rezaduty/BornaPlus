@@ -1,0 +1,139 @@
+
+
+
+{% extends "panel::layouts.dashboard" %}
+
+
+{% block content %}
+
+
+  <form action="{{ route('panel.updateKMS',str_slug(post['title'],"-")) }}" method="post" enctype="multipart/form-data">
+
+<input type="hidden" name="_token" value="{{ csrf_token() }}">
+<input type="hidden" name="old_title" value="{{ post['title'] }}">
+<input type="hidden" name="posted_at" value="{{ post['posted_at'] }}">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-8">
+              <div class="card">
+                <div class="card-header card-header-primary">
+                  <h4 class="card-title">درج خبر جدید</h4>
+                  <p class="card-category"></p>
+                </div>
+                <div class="card-body">
+                  <form>
+
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">عنوان</label>
+                          <input type="text" name="title" required class="form-control" value="{{ post['title'] }}">
+
+                        </div>
+
+                         <label class="bmd-label-floating">مهم</label>
+                           {{ post['top'] }}
+{% if (post['top']==1) %}
+
+<input type="hidden" name="top" value="0" class="form-control" />
+
+<input type="checkbox" checked name="top" value="1" class="form-control" /> 
+
+        {% else %}
+
+<input type="hidden" name="top" value="0" class="form-control" />
+
+<input type="checkbox" name="top" value="1" class="form-control" /> 
+
+
+        {% endif %}   
+        
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                        <label class="bmd-label-floating">دسته بندی</label>
+                          <select id="cat_id" class="form-control" name="cat_id">
+
+                                            {% for cat in categories %}
+                            
+                            {% if cat['id']==post['cat_id'] %}
+                                   <option selected="selected" value="{{ cat['id'] }}">{{ cat['content'] }}</option>
+                              
+                              {% else %}
+                                   <option value="{{ cat['id'] }}">{{ cat['content'] }}</option>
+                              {% endif %}
+
+                            
+
+                                          
+
+                                       {% endfor %}
+                          </select>
+                        </div>
+                      </div>
+
+                    </div>
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">عکس اصلی</label>
+                          
+                          <button md-mini-fab type="button" onclick="document.getElementById('image').click()">
+  <label for="image"><md-icon>اضافه</md-icon></label>
+</button>
+<input type="file" name="image" id="image" style="display:none;">
+
+<img src="{{ post['thumb_thumbnail_url'] }}" />
+
+
+                      
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <label>متن اصلی</label>
+                          <div class="form-group">
+                            <label class="bmd-label-floating"> </label>
+                            <textarea required name="post-ckeditor" class="form-control" id="post-ckeditor">
+                             {{ post['content'] }}
+                            </textarea>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <a href="{{ route('panel.getNews') }}" class="btn btn-secondary">برگشت</a>
+        <input class="btn btn-primary" type="submit" value="بروزرسانی">
+                    <div class="clearfix"></div>
+                  </form>
+                </div>
+              </div>
+            </div>
+            
+            </div>
+          </div>
+        </div>
+
+
+
+        
+    {{ form_close() }}
+{% endblock %}

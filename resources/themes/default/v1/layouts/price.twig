@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="{{ current_locale() }}">
+<head>
+    <meta charset="utf-8">
+    <title>{{ MetaTag.get('title') }}</title>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="generator" content="MarketplaceKit 1.0.0" /> <!-- leave this for versioning -->
+
+<script src="{{ asset('/js/ckeditor/ckeditor.js') }}"></script>
+
+    {{  MetaTag.tag('description') | raw }}
+    {{  MetaTag.tag('image') | raw }}
+
+ 
+
+
+
+<link 
+  rel="stylesheet"
+  href="https://cdn.rtlcss.com/bootstrap/3.3.7/css/bootstrap.min.css"
+  integrity="sha384-cSfiDrYfMj9eYCidq//oGXEkMc0vuTxHXizrMOFAaPsLt1zoCUVnSsURN+nef1lj"
+  crossorigin="anonymous">
+<!-- compiled and minified theme CSS -->
+<link
+  rel="stylesheet"
+  href="https://cdn.rtlcss.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+  integrity="sha384-YNPmfeOM29goUYCxqyaDVPToebWWQrHk0e3QYEs7Ovg6r5hSRKr73uQ69DkzT1LH"
+  crossorigin="anonymous">
+
+<!-- compiled and minified JavaScript -->
+<script
+  src="https://cdn.rtlcss.com/bootstrap/3.3.7/js/bootstrap.min.js"
+  integrity="sha384-B4D+9otHJ5PJZQbqWyDHJc6z6st5fX3r680CYa0Em9AUG6jqu5t473Y+1CTZQWZv"
+  crossorigin="anonymous"></script>
+
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.9/slick.min.css">
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.9/slick-theme.min.css">
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/chartist/0.10.1/chartist.min.css">
+
+        <link href="{{ asset('themes/' ~  current_theme()  ~ '/css/animate.css') }}" rel="stylesheet">
+        <link href="{{ asset('themes/' ~  current_theme()  ~ '/css/icomoon.css') }}" rel="stylesheet">
+        <link href="{{ asset('themes/' ~  current_theme()  ~ '/css/magnific-popup.css') }}" rel="stylesheet">
+        <link href="{{ asset('themes/' ~  current_theme()  ~ '/css/flexslider.css') }}" rel="stylesheet">
+        <link href="{{ asset('themes/' ~  current_theme()  ~ '/css/owl.carousel.min.css') }}" rel="stylesheet">
+        <link href="{{ asset('themes/' ~  current_theme()  ~ '/css/owl.theme.default.min.css') }}" rel="stylesheet">
+        <link href="{{ asset('themes/' ~  current_theme()  ~ '/fonts/flaticon/font/flaticon.css') }}" rel="stylesheet">
+        <link href="{{ asset('themes/' ~  current_theme()  ~ '/css/style.css?v=1') }}" rel="stylesheet">
+    <script src="{{ asset('themes/' ~  current_theme()  ~ '/js/modernizr-2.6.2.min.js') }}"></script>
+
+
+
+ 
+
+</head>
+<body data-turbolinks="false">
+
+<div id="app">
+
+    {% block navbar %}
+        {% include 'v1.layouts.navbar.twig' %}
+    {% endblock %}
+
+
+    <div class="main-content   " id="main" >
+        {% block content %}{% endblock %}
+    </div>
+
+</div>
+{% block footer %}
+        {% include 'v1.layouts.footer.twig' %}
+    {% endblock %}
+  </div>
+
+  <div class="gototop js-top">
+    <a href="#" class="js-gotop"><i class="icon-arrow-up2"></i></a>
+  </div>
+  
+  
+  <!-- jQuery -->
+      <script src="{{ asset('themes/' ~  current_theme()  ~ '/js/jquery.min.js') }}"></script>
+
+  
+  <!-- jQuery Easing -->
+    <script src="{{ asset('themes/' ~  current_theme()  ~ '/js/jquery.easing.1.3.js') }}"></script>
+
+  <!-- Bootstrap -->
+    <script src="{{ asset('themes/' ~  current_theme()  ~ '/js/bootstrap.min.js') }}"></script>
+
+
+  <!-- Waypoints -->
+    <script src="{{ asset('themes/' ~  current_theme()  ~ '/js/jquery.waypoints.min.js') }}"></script>
+
+  <!-- Stellar Parallax -->
+    <script src="{{ asset('themes/' ~  current_theme()  ~ '/js/jquery.stellar.min.js') }}"></script>
+
+
+  <!-- Flexslider -->
+    <script src="{{ asset('themes/' ~  current_theme()  ~ '/js/jquery.flexslider-min.js') }}"></script>
+
+
+  <!-- Owl carousel -->
+    <script src="{{ asset('themes/' ~  current_theme()  ~ '/js/owl.carousel.min.js') }}"></script>
+
+
+  <!-- Magnific Popup -->
+    <script src="{{ asset('themes/' ~  current_theme()  ~ '/js/jquery.magnific-popup.min.js') }}"></script>
+
+
+    <script src="{{ asset('themes/' ~  current_theme()  ~ '/js/magnific-popup-options.js') }}"></script>
+
+
+  <!-- Counters -->
+    <script src="{{ asset('themes/' ~  current_theme()  ~ '/js/jquery.countTo.js') }}"></script>
+
+  <!-- Main -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.9/slick.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.touchswipe/1.6.18/jquery.touchSwipe.min.js"></script>
+    <script src="{{ asset('themes/' ~  current_theme()  ~ '/js/main.js') }}"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/chartist/0.9.8/chartist.min.js"></script>
+
+{% block script %}{% endblock %}
+
+
+</body>
+</html>

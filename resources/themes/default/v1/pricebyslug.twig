@@ -1,0 +1,301 @@
+{% extends "v1.layouts.price" %}
+
+{% block content %}	
+		<aside id="colorlib-hero" style="height:671px !important;">
+			<div class="container" style="margin-top: 10%;">
+
+			<div class="row">	
+<div class="col-md-12">
+	<div class="row">
+	<div class="flexsliderr">
+<div class="ct_chart_wrapper">
+  <div class="ct-chart ct-perfect-fourth"></div>
+</div><!-- ct_chart_wrapper -->
+</div>
+</div>
+
+
+</div>
+
+
+
+</div>
+		  	</div>
+		</aside>
+
+
+
+
+		
+		<div id="colorlib-about">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-10 col-md-offset-1 text-center animate-box">
+						<div class="about-wrap">
+							<div class="heading-2">
+								<h2>{{ price['day'][0]['product']['name'] }}</h2>
+							</div>
+							<p>{{ price['day'][0]['product']['description']|striptags }}</p>
+						</div>
+					</div>
+				</div>
+
+    <div class="row">
+        <div class="col-sm-6 animate-box">
+
+        <h3>۷ روز گذشته</h3>
+
+        <div class="ct_chart_wrapper">
+  <div class="ct-chart-7day ct-perfect-fourth"></div>
+</div><!-- ct_chart_wrapper -->
+
+
+        </div>
+        <div class="col-sm-6 animate-box">
+        <h3>ماه گذشته</h3>
+        <div class="ct_chart_wrapper">
+  <div class="ct-chart-mountly ct-perfect-fourth"></div>
+</div><!-- ct_chart_wrapper -->
+
+
+        </div>
+    </div>
+    
+
+
+
+
+
+
+
+
+    <div class="row">
+
+        <div class="col-sm-12 animate-box">
+        
+
+
+        <h3>سال گذشته</h3>
+        <div class="ct_chart_wrapper">
+  <div class="ct-chart-yearly ct-perfect-fourth"></div>
+</div><!-- ct_chart_wrapper -->
+
+        </div>
+        <div class="col-sm-12 animate-box">
+        <h3>فروشندگان</h3>
+
+
+
+        
+
+        </div>
+    </div>
+
+
+
+
+			</div>
+		</div>
+
+
+		{% endblock %}
+		{% block script %}
+		
+		
+<script type="text/javascript">
+
+
+var data = {
+  // A labels array that can contain any sort of values
+  labels: ["{{ price['day'][0]['posted_at'] }}", "{{ price['day'][1]['posted_at'] }}","{{ price['day'][2]['posted_at'] }}", "{{ price['day'][3]['posted_at'] }}", "{{ price['day'][4]['posted_at'] }}"],
+  // Our series array that contains series objects or in this case series data arrays
+  series: [
+    ["{{ price['day'][0]['average']|number_format(0,'.','.') }}", "{{ price['day'][1]['average']|number_format(0,'.','.') }}","{{ price['day'][2]['average']|number_format(0,'.','.') }}", "{{ price['day'][3]['average']|number_format(0,'.','.') }}","{{ price['day'][4]['average']|number_format(0,'.','.') }}"]
+  ]
+};
+
+
+// We are setting a few options for our chart and override the defaults
+var options = {
+    showArea: true,
+  // X-Axis specific configuration
+  axisX: {
+    offset: 15
+  },
+  // Y-Axis specific configuration
+  axisY: {
+    // We can disable the grid for this axis
+    showGrid: false,
+    // Lets offset the chart a bit from the labels
+    offset: 90,
+    // The label interpolation function enables you to modify the values
+    // used for the labels on each axis.
+    labelInterpolationFnc: function(value) {
+      return value+'تومان';
+    }
+  }
+};
+
+
+// Create a new line chart object where as first parameter we pass in a selector
+// that is resolving to our chart container element. The Second parameter
+// is the actual data object.
+new Chartist.Line('.ct-chart', data, options);
+
+
+
+
+
+
+
+
+
+//7 day
+
+
+var data = {
+  // A labels array that can contain any sort of values
+  labels: ["{{ price['week'][0]['posted_at'] }}", "{{ price['week'][1]['posted_at'] }}","{{ price['week'][2]['posted_at'] }}", "{{ price['week'][3]['posted_at'] }}", "{{ price['week'][4]['posted_at'] }}"],
+  // Our series array that contains series objects or in this case series data arrays
+  series: [
+    ["{{ price['week'][0]['average']|number_format(0,'.','.') }}", "{{ price['week'][1]['average']|number_format(0,'.','.') }}","{{ price['week'][2]['average']|number_format(0,'.','.') }}", "{{ price['week'][3]['average']|number_format(0,'.','.') }}","{{ price['week'][4]['average']|number_format(0,'.','.') }}"]
+  ]
+};
+
+
+// We are setting a few options for our chart and override the defaults
+var options = {
+    showArea: true,
+  // X-Axis specific configuration
+  axisX: {
+    offset: 15
+  },
+  // Y-Axis specific configuration
+  axisY: {
+    // We can disable the grid for this axis
+    showGrid: false,
+    // Lets offset the chart a bit from the labels
+    offset: 90,
+    // The label interpolation function enables you to modify the values
+    // used for the labels on each axis.
+    labelInterpolationFnc: function(value) {
+      return value+'تومان';
+    }
+  }
+};
+
+
+// Create a new line chart object where as first parameter we pass in a selector
+// that is resolving to our chart container element. The Second parameter
+// is the actual data object.
+new Chartist.Line('.ct-chart-7day', data, options);
+
+
+
+
+
+
+
+
+//mounthly day
+
+
+var data = {
+  // A labels array that can contain any sort of values
+  labels: ["{{ price['month'][0]['posted_at'] }}", "{{ price['month'][1]['posted_at'] }}","{{ price['month'][2]['posted_at'] }}", "{{ price['month'][3]['posted_at'] }}", "{{ price['month'][4]['posted_at'] }}"],
+  // Our series array that contains series objects or in this case series data arrays
+  series: [
+    ["{{ price['month'][0]['average']|number_format(0,'.','.') }}", "{{ price['month'][1]['average']|number_format(0,'.','.') }}","{{ price['month'][2]['average']|number_format(0,'.','.') }}", "{{ price['month'][3]['average']|number_format(0,'.','.') }}","{{ price['month'][4]['average']|number_format(0,'.','.') }}"]
+  ]
+};
+
+
+// We are setting a few options for our chart and override the defaults
+var options = {
+    showArea: true,
+  // X-Axis specific configuration
+  axisX: {
+    offset: 15
+  },
+  // Y-Axis specific configuration
+  axisY: {
+    // We can disable the grid for this axis
+    showGrid: false,
+    // Lets offset the chart a bit from the labels
+    offset: 90,
+    // The label interpolation function enables you to modify the values
+    // used for the labels on each axis.
+    labelInterpolationFnc: function(value) {
+      return value+'تومان';
+    }
+  }
+};
+
+
+// Create a new line chart object where as first parameter we pass in a selector
+// that is resolving to our chart container element. The Second parameter
+// is the actual data object.
+new Chartist.Line('.ct-chart-mountly', data, options);
+
+
+
+
+
+
+
+
+
+//yearly day
+
+
+var data = {
+  // A labels array that can contain any sort of values
+  labels: ["{{ price[0]['posted_at'] }}", "{{ price[1]['posted_at'] }}","{{ price[2]['posted_at'] }}", "{{ price[3]['posted_at'] }}", "{{ price[4]['posted_at'] }}"],
+  // Our series array that contains series objects or in this case series data arrays
+  series: [
+    ["{{ price['year'][0]['average']|number_format(0,'.','.') }}", "{{ price['year'][1]['average']|number_format(0,'.','.') }}","{{ price['year'][2]['average']|number_format(0,'.','.') }}", "{{ price['year'][3]['average']|number_format(0,'.','.') }}","{{ price['year'][4]['average']|number_format(0,'.','.') }}"]
+  ]
+};
+
+
+// We are setting a few options for our chart and override the defaults
+var options = {
+    showArea: true,
+  // X-Axis specific configuration
+  axisX: {
+    offset: 15
+  },
+  // Y-Axis specific configuration
+  axisY: {
+    // We can disable the grid for this axis
+    showGrid: false,
+    // Lets offset the chart a bit from the labels
+    offset: 90,
+    // The label interpolation function enables you to modify the values
+    // used for the labels on each axis.
+    labelInterpolationFnc: function(value) {
+      return value+'تومان';
+    }
+  }
+};
+
+
+// Create a new line chart object where as first parameter we pass in a selector
+// that is resolving to our chart container element. The Second parameter
+// is the actual data object.
+new Chartist.Line('.ct-chart-yearly', data, options);
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+{% endblock %}	

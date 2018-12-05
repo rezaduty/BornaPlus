@@ -1,0 +1,83 @@
+
+{% extends "panel::layouts.dashboard" %}
+
+
+{% block content %}
+
+
+    {{ form_open({'route' :'panel.storeSocial', 'method' :'POST'}) }}
+
+
+
+
+
+  <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-8">
+              <div class="card">
+                <div class="card-header card-header-primary">
+                  <h4 class="card-title">شبکه های اجتماعی</h4>
+                  <p class="card-category"></p>
+                </div>
+                <div class="card-body">
+                  <form>
+
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">تلگرام</label>
+                          <input type="text" name="telegram" required class="form-control" value="">
+                        </div>
+                      </div>
+                    </div>
+
+
+                      <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">اینستاگرام</label>
+                          <input type="text" name="instagram" required class="form-control" value="">
+                        </div>
+                      </div>
+                      </div>
+
+                      <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">لینکداین</label>
+                          <input type="text" name="linkedin" required class="form-control" value="">
+                        </div>
+                      </div>
+                      </div>
+
+                     <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">آپارت</label>
+                          <input type="text" name="aparat" required class="form-control" value="">
+                        </div>
+                      </div>
+                      </div>
+
+                      
+                      
+
+                   
+
+                    <div class="clearfix"></div>
+
+                  </form>
+                </div>
+              </div>
+                                  <a href="{{ route('panel.getSocial') }}" class="btn btn-secondary">برگشت</a>
+        <input class="btn btn-primary" type="submit" value="درج">
+            </div>
+            
+            </div>
+          </div>
+        </div>
+
+
+        
+    {{ form_close() }}
+{% endblock %}

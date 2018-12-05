@@ -1,0 +1,50 @@
+{% extends "account.blog" %}
+
+
+{% block user_area %}
+
+
+    {{ form_open({'route' :'account.storeNews', 'method' :'POST', 'files' : 'true'}) }}
+
+
+
+
+
+<div class="form-row">
+<div class="row">
+    <div class="form-group col-md-6">
+        
+        <input placeholder="title" type="text" name="title" class="form-control" value="">
+
+    </div>
+
+   <div class="form-group col-md-6">
+        
+        <input type="file" name="image" id="image">
+
+    </div>
+</div>
+    <div class="form-group col-md-12">
+      <textarea name="post-ckeditor" id="post-ckeditor"></textarea>
+
+    </div>
+    <select id="cat_id" name="cat_id">
+
+             {% for cat in categories %}
+  <option value="{{ cat['id'] }}">{{ cat['content'] }}</option>
+
+                
+
+             {% endfor %}
+</select>
+
+</div>
+
+
+
+<a href="{{ route('account.getCategory') }}" class="btn btn-secondary">Back</a>
+        <input class="btn btn-primary" type="submit" value="Save">
+       
+        
+    {{ form_close() }}
+{% endblock %}

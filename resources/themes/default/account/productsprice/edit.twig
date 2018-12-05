@@ -1,0 +1,51 @@
+{% extends "account.blog" %}
+
+
+{% block user_area %}
+
+
+
+
+<form action="{{ route('account.updateProductPrice',product['id']) }}" method="post">
+
+<input type="hidden" name="_token" value="{{ csrf_token() }}">
+
+
+<div class="form-row">
+
+    <div class="form-group col-md-6">
+        
+        <input placeholder="min" type="number" name="min" class="form-control" value="{{ product['min'] }}">
+        <input placeholder="max" type="number" name="max" class="form-control" value="{{ product['max'] }}">
+
+    </div>
+
+    <select id="product_id" name="product_id">
+
+                  {% for cat in categories %}
+  {% if cat['id']==product['product_id'] %}
+         <option selected="selected" value="{{ cat['id'] }}">{{ cat['name'] }}</option>
+    
+    {% else %}
+         <option value="{{ cat['id'] }}">{{ cat['name'] }}</option>
+    {% endif %}
+
+  
+
+                
+
+             {% endfor %}
+</select>
+
+
+
+</div>
+
+
+
+<a href="{{ route('account.getProductPrice') }}" class="btn btn-secondary">Back</a>
+        <input class="btn btn-primary" type="submit" value="Save">
+       
+        
+    </form>
+{% endblock %}

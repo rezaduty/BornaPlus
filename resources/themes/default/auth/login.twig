@@ -1,0 +1,141 @@
+{% extends "layouts.app" %}
+
+{% block content %}
+ 
+        <!-- LOGIN MODULE -->
+        <div class="login">
+            <div class="wrap">
+             {% include 'notifications' %}
+                <!-- TOGGLE -->
+                <div id="toggle-wrap">
+                    <div id="toggle-terms">
+                        <div id="cross">
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+                </div>
+                <!-- TERMS -->
+                <div class="terms">
+                    <h2>قوانین و شرایط</h2>
+                    <p class="small"></p>
+                    <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ</p>
+                    <p>استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله</p>
+                    <h3>لورم ایپسوم</h3>
+                    <p>الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد. در این صورت می توان امید داشت</p>
+                    <h3>لورم ایپسوم</h3>
+                    <p>وزمان مورد نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.</p>
+                    
+                   
+                </div>
+
+                <!-- RECOVERY -->
+                <div class="recovery">
+                    <h2>فراموشی رمز عبور</h2>
+                    <p>لطفا <strong>ایمیل</strong> یا <strong>شماره تلفن</strong> خود را وارد کنید و در نهایت بر روی <strong>تایید</strong>کلیک کنید</p>
+                    <form class="recovery-form" method="POST" action="{{ route('password.email') }}">
+                        {{ csrf_field() }}
+                        <input type="email" class="input" id="email" name="email" value="{{ old('email') }}" placeholder="ایمیل یا شماره تلفن">
+                        {% if errors.has('email') %}
+                                <small class="form-control-feedback invalid-feedback">{{errors.first('email') }}</small>
+                        {% endif %}
+                        <input type="submit" class="button" value="تایید">
+                    </form>
+                   
+                </div>
+
+                <!-- SLIDER -->
+                <div class="content">
+                    <!-- LOGO -->
+                    <div class="logo">
+                        <a href="#"><img src="http://res.cloudinary.com/dpcloudinary/image/upload/v1506186248/logo.png" alt=""></a>
+                    </div>
+                    <!-- SLIDESHOW -->
+                    <div id="slideshow">
+                        <div class="one">
+                            <h2><span>لورم ایپسوم</span></h2>
+                            <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. </p>
+                        </div>
+                        <div class="two">
+                            <h2><span>طراحان </span></h2>
+                            <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. </p>
+                        </div>
+                        <div class="three">
+                            <h2><span>لورم ایپسوم</span></h2>
+                            <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. </p>
+                        </div>
+                        <div class="four">
+                            <h2><span>لورم ایپسوم</span></h2>
+                            <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- LOGIN FORM -->
+                <div class="user">
+                    <!-- ACTIONS
+                    <div class="actions">
+                        <a class="help" href="#signup-tab-content">Sign Up</a><a class="faq" href="#login-tab-content">Login</a>
+                    </div>
+                    -->
+                    <div class="form-wrap">
+                        <!-- TABS -->
+                    	<div class="tabs">
+                            <h3 class="login-tab"><a class="log-in active" href="#login-tab-content"><span>ورود<span></a></h3>
+                    		<h3 class="signup-tab"><a class="sign-up" href="#signup-tab-content"><span>ثبت نام</span></a></h3>
+                    	</div>
+                        <!-- TABS CONTENT -->
+                    	<div class="tabs-content">
+                            <!-- TABS CONTENT LOGIN -->
+                    		<div id="login-tab-content" class="active">
+                    			<form class="login-form" method="POST" action="{{ route('login') }}">
+                                    {{ csrf_field() }}
+                    				<input type="text" class="input" id="email" name="email" value="{{ old('email') }}" autocomplete="off" placeholder="ایمیل یا شماره تلفن" autofocus>
+                    				<input type="password" class="input" id="password" name="password" autocomplete="off" placeholder="کلمه عبور">
+                    				<input type="checkbox" class="checkbox" name="remember" {{ input_get('remember') ? 'checked' : '' }}>
+                    				<label for="remember_me">مرا به خاطر بسپار</label>
+                    				<input type="submit" class="button" value="ورود">
+                    			</form>
+                    			<div class="help-action">
+                    				<p><a class="forgot" href="#">کلمه عبور خود را فراموش کرده اید؟</a></p>
+                    			</div>
+                    		</div>
+                            <!-- TABS CONTENT SIGNUP -->
+                    		<div id="signup-tab-content">
+                    			<form class="signup-form"  method="POST" action="{{ route('register') }}">
+                                   {{ csrf_field() }}
+                    				<input type="text" class="input"  id="name" name="name" value="{{ old('name') }}" autocomplete="off" placeholder="نام کاربری">
+                                     {% if errors.has('name') %}
+                                    <small class="form-control-feedback invalid-feedback">{{ errors.first('name') }}</small>
+                                    {% endif %}
+                    				<input type="email" class="input" id="email" name="email" autocomplete="off" placeholder="ایمیل">
+                                     {% if errors.has('email') %}
+                                    <small class="form-control-feedback invalid-feedback">{{ errors.first('email') }}</small>
+                                    {% endif %}
+                    				<input type="password" class="input" id="password" name="password" autocomplete="off" placeholder="کلمه عبور">
+                                    {% if errors.has('password') %}
+                                    <div class="form-control-feedback invalid-feedback">{{ errors.first('password') }}</div>
+                                    {% endif %}
+                    				<input type="password" class="input" id="password-confirm" name="password_confirmation" autocomplete="off" placeholder="تایید کلمه عبور">
+                    				<input type="submit" class="button" value="ثبت نام">
+                    			</form>
+                    			<div class="help-action">
+                    				<p><a class="agree" href="#">شرایط و قوانین</a></p>
+                    			</div>
+                    		</div>
+                    	</div>
+                	</div>
+                </div>
+            </div>
+        </div>
+
+
+{% endblock %}
+
+
+{% block footer %}
+<footer class="bg-white border-0" >
+</footer>
+{% endblock %}
+
+{% block search_bar %}
+{% endblock %}

@@ -1,0 +1,147 @@
+		<div id="colorlib-subscribe" class="subs-img" style="background-image: url('https://images.unsplash.com/photo-1500595046743-cd271d694d30?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=7d50be9f2155f55c280b89ad55e66585&auto=format&fit=crop&w=1353&q=80');">
+			<div class="overlay"></div>
+			<div class="container">
+				<div class="row">
+					<div class="col-md-8 col-md-offset-2 text-center colorlib-heading ">
+						<h2>فرم عضویت</h2>
+						<p>لورم اپیسوم</p>
+					</div>
+				</div>
+				<div class="row ">
+					<div class="col-md-6 col-md-offset-2">
+						<div class="row">
+							<div class="col-md-12">
+							<form class="form-inline qbstp-header-subscribe">
+								<div class="col-three-forth">
+									<div class="form-group">
+										<input type="text" class="form-control" id="email" placeholder="لطفا ایمیل خود را وارد نکید">
+									</div>
+								</div>
+								<div class="col-one-third">
+									<div class="form-group">
+										<button type="submit" class="btn btn-primary">عضو خبرنامه شوید</button>
+									</div>
+								</div>
+							</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<footer id="colorlib-footer">
+			<div class="container">
+				<div class="row row-pb-md">
+					<div class="col-md-3 colorlib-widget">
+						<h4>درباره ما</h4>
+						<p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است</p>
+						<p>
+							<ul class="colorlib-social-icons">
+								<li><a href="{{ social['instagram'] }}"><i class="icon-instagram"></i></a></li>
+								<li><a href="{{ social['telegram'] }}"><i class="icon-telegram"></i></a></li>
+								<li><a href="{{ social['linkedin'] }}"><i class="icon-linkedin"></i></a></li>
+								<li><a href="{{ social['aparat'] }}"><i class="icon-youtube"></i></a></li>
+								
+							</ul>
+						</p>
+					</div>
+					<div class="col-md-3 colorlib-widget">
+						<h4>دسترسی سریع</h4>
+						<p>
+							<ul class="colorlib-footer-links">
+								<li><a href="/news"><i class="icon-newspaper"></i>اخبار</a></li>
+								<li><a href="/kms"><i class="icon-file-text2"></i> آموزش ها</a></li>
+								<li><a href="/contactus"><i class="icon-envelop"></i>تماس با ما</a></li>
+								<li><a href="/aboutus"><i class="icon-binoculars"></i> درباره ما</a></li>
+
+							</ul>
+						</p>
+					</div>
+
+					<div class="col-md-3 colorlib-widget">
+						<h4>آخرین اخبار</h4>
+						{% for cat in lnews['data'] %}
+						<div class="f-blog">
+							<a href="blog.html" class="blog-img" style="background-image: url({{ cat['thumbnail_url'] }});">
+							</a>
+							<div class="desc">
+								<h2><a href="blog.html">{{ cat['title']|slice(0, 50) ~ '...' }}</a></h2>
+								<p class="admin"><span>{{ cat['content']|striptags|slice(0, 50) ~ '...' }}</span></p>
+							</div>
+						</div>
+						{% endfor %}
+					</div>
+
+					<div class="col-md-3 colorlib-widget">
+						<h4>تماس با ما</h4>
+						<ul class="colorlib-footer-links">
+							<li>{{ contact['address'] }}</li>
+							<li><a href="tel://{{ contact['phone'] }}"><i class="icon-phone"></i>{{ contact['phone'] }}</a></li>
+							<li><a href="mailto:{{ contact['email'] }}"><i class="icon-envelope"></i> {{ contact['email'] }}</a></li>
+							<li><a href="http://bornaplus.com"><i class="icon-location4"></i> bornaplus.com</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="copy">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12 text-center under-footer">
+							<p>
+								<small class="block">کلیه حقوق برای <span><a style="color:#f0ad4e;" href="http://bornaplus.com">برنا پلاس</a></span> محفوظ میباشد
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></small><br> 
+								<small class="block">توسعه داده شده توسط <span><a style="color:#8a6d3b;" href="http://bawetech.com">با وی تک</a></span> و قالب کالر لیب</small>
+								<br><small><script>document.write(new Date().getFullYear())</script>&copy;
+</small>
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>
+	</div>
+
+	<div class="gototop js-top">
+		<a href="#" class="js-gotop"><i class="icon-arrow-up2"></i></a>
+	</div>
+	
+	<!-- jQuery -->
+	    <script src="{{ asset('themes/' ~  current_theme()  ~ '/js/jquery.min.js') }}"></script>
+
+	
+	<!-- jQuery Easing -->
+    <script src="{{ asset('themes/' ~  current_theme()  ~ '/js/jquery.easing.1.3.js') }}"></script>
+
+	<!-- Bootstrap -->
+    <script src="{{ asset('themes/' ~  current_theme()  ~ '/js/bootstrap.min.js') }}"></script>
+
+
+	<!-- Waypoints -->
+    <script src="{{ asset('themes/' ~  current_theme()  ~ '/js/jquery.waypoints.min.js') }}"></script>
+
+	<!-- Stellar Parallax -->
+    <script src="{{ asset('themes/' ~  current_theme()  ~ '/js/jquery.stellar.min.js') }}"></script>
+
+
+	<!-- Flexslider -->
+    <script src="{{ asset('themes/' ~  current_theme()  ~ '/js/jquery.flexslider-min.js') }}"></script>
+
+
+	<!-- Owl carousel -->
+    <script src="{{ asset('themes/' ~  current_theme()  ~ '/js/owl.carousel.min.js') }}"></script>
+
+
+	<!-- Magnific Popup -->
+    <script src="{{ asset('themes/' ~  current_theme()  ~ '/js/jquery.magnific-popup.min.js') }}"></script>
+
+
+    <script src="{{ asset('themes/' ~  current_theme()  ~ '/js/magnific-popup-options.js') }}"></script>
+
+
+	<!-- Counters -->
+    <script src="{{ asset('themes/' ~  current_theme()  ~ '/js/jquery.countTo.js') }}"></script>
+
+	<!-- Main -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.9/slick.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.touchswipe/1.6.18/jquery.touchSwipe.min.js"></script>
+    <script src="{{ asset('themes/' ~  current_theme()  ~ '/js/main.js') }}"></script>
