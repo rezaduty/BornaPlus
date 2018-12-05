@@ -1,21 +1,46 @@
-{% extends "layouts.app" %}
-
-{% block search_bar %}
-{% endblock %}
+{% extends "v1.layouts.app" %}
 
 {% block content %}
-<div class="bg-light window-height" >
-<div class="container-fluid" id="create-content-outer" >
-    <div class="mx-auto " id="create-content" style="max-width: 576px;">
 
-        <div class="row pt-5">
-            <div class="col-12 " style="">
+
+
+
+
+<aside id="colorlib-hero" style="min-height: 104px !important;">
+            <div class="flexslider">
+                <ul class="slides">
+                <li style="background-image: url(images/img_bg_2.jpg);">
+                    <div class="overlay"></div>
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-6 col-sm-12 col-md-offset-3 slider-text">
+                                <div class="slider-text-inner text-center">
+                                    <h1>Blog</h1>
+                                    <h2><span><a href="index.html">Home</a> | Blog</span></h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                </ul>
+            </div>
+        </aside>
+
+
+
+        <div id="colorlib-contact">
+            <div class="container">
+
+
+
+
+ <div class="col-sm-12">
 
 
 
     <div class="modal-content" data-turbolinks="false">
         <div class="modal-header">
-            <h5 class="modal-title">{{ __('Post a listing') }}</h5>
+            <h5 class="modal-title">{{ __('ثبت شرکت جدید') }}</h5>
 
             <button type="button" id="postModal-close" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
@@ -82,17 +107,17 @@
                 {% if request('pricing_model') %}
 
                     <div class="form-group  has-feedback">
-                        <label for="exampleInputEmail1">{{ __("Title") }}</label>
+                        <label for="exampleInputEmail1">{{ __("عنوان") }}</label>
                         {{ form_text('title', null, {'class' : 'form-control', 'required':'required', 'data-minlength' : 5}) }}
                         <div class="help-block with-errors"></div>
                     </div>
                     <div class="form-group">
-                        <label>{{ __("Description") }}</label>
+                        <label>{{ __("توضیحات") }}</label>
                         <div id="description_new" style="height: 200px">
                             {{ old("description_new") | raw}}
                         </div>
                         {{ form_hidden('description_new', null, {'class' : 'form-control'}) }}
-                        <small id="emailHelp" class="form-text text-muted">{{ __("You can upload images and set your own pricing in the next step.") }}</small>
+                        </small>
 
                     </div>
 
@@ -100,7 +125,7 @@
         </div>
         <div class="modal-footer">
             {% if request('category') and request('pricing_model') %}
-                <button type="submit" class="btn btn-primary">{{ __("Create & continue") }}</button>
+                <button type="submit" class="btn btn-primary">{{ __("ثبت و ادامه") }}</button>
             {% else %}
                 <button type="submit" class="btn btn-primary">{{ __("Continue") }}</button>
             {% endif %}
@@ -143,5 +168,27 @@
 </div>
 </div>
 </div>
+     
+
+        </div>
+                    
+
+
+
+
+       
+
+
+
+
+            </div>
+        </div>
+        
+
+
+
+
+
+
 {% endblock %}
 

@@ -53,7 +53,7 @@
                             
     <select id="product_id" name="product_id">
 
-                  {% for cat in categories %}
+                  {% for cat in categories['data'] %}
   {% if cat['id']==product['product_id'] %}
          <option selected="selected" value="{{ cat['id'] }}">{{ cat['name'] }}</option>
     

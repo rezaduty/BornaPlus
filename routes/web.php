@@ -65,11 +65,37 @@ Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => 'jai
 	});
 */
 Auth::routes();
-	
+    Route::get('email-verification', 'Auth\EmailVerificationController@sendEmailVerification')->name('email-verification.send');
+    Route::get('email-verification/error', 'Auth\EmailVerificationController@getVerificationError')->name('email-verification.error');
+    Route::get('email-verification/check/{token}', 'Auth\EmailVerificationController@getVerification')->name('email-verification.check');
+
+    Route::get('/', 'HomeController@index')->name('home');
+	Route::get('/browse', 'BrowseController@listings')->name('browse');
+
+	 Route::get('/pages/{slug}', 'PageController@index')->name('page');
+	Route::get('/contact', 'ContactController@index')->name('contact');
+	Route::post('/contact', 'ContactController@postIndex')->name('contact.post');
+
+	Route::get('/profile/{user}', 'ProfileController@index')->name('profile'); //PROFILE
+	Route::get('/profile/{user}/follow', 'ProfileController@follow')->name('profile.follow'); //PROFILE
+
+	//LISTINGS
+	Route::group(['prefix' => 'listing'], function()
+	{
+		Route::get('/{listing}/{slug}', 'ListingController@index')->name('listing');
+		Route::get('/{listing}/{slug}/spotlight', 'ListingController@spotlight')->middleware('auth.ajax')->name('listing.spotlight');
+		Route::get('/{listing}/{slug}/verify', 'ListingController@verify')->middleware('auth.ajax')->name('listing.verify');
+		Route::get('/{listing}/{slug}/star', 'ListingController@star')->middleware('auth.ajax')->name('listing.star');
+		Route::get('/{listing}/{slug}/edit', 'ListingController@edit')->name('listing.edit');
+		Route::any('/{id}/update', 'ListingController@update')->name('listing.update');
+
+	});
+
+
 Route::group(['as' => 'v1.', 'namespace' => 'V1'], function()
 {
 	
-    Route::get('/', 'HomeController@index')->name('home');
+    
     Route::get('/news', 'HomeController@news')->name('news');
     Route::get('/news/{slug}', 'HomeController@newsbyslug')->name('newsbyslug');
     Route::get('/kms/', 'HomeController@kms')->name('kms');

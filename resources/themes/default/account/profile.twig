@@ -1,41 +1,69 @@
-{% extends "account.master" %}
+{% extends "v1.layouts.app" %}
 
-{% block user_area %}
-    <div class="card">
-        <h6 class="card-header bg-white"><i class="mdi mdi-account mr-2"></i> {{ __("My Profile") }}</h6>
-        <div class="card-body">
+{% block content %}
 
 
-            {{ form_model(user, {'url' :  route('account.edit_profile.store'), 'files': true, 'id':'edit_profile', 'class' : 'form-vertical mb-5'}) }}
+
+<aside id="colorlib-hero" style="min-height: 104px !important;">
+            <div class="flexslider">
+                <ul class="slides">
+                <li style="background-image: url(images/img_bg_2.jpg);">
+                    <div class="overlay"></div>
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-6 col-sm-12 col-md-offset-3 slider-text">
+                                <div class="slider-text-inner text-center">
+                                    <h1>Blog</h1>
+                                    <h2><span><a href="index.html">Home</a> | Blog</span></h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                </ul>
+            </div>
+        </aside>
+
+
+
+        <div id="colorlib-contact">
+            <div class="container">
+
+
+
+
+ <div class="col-sm-9">
+
+               {{ form_model(user, {'url' :  route('account.edit_profile.store'), 'files': true, 'id':'edit_profile', 'class' : 'form-vertical mb-5'}) }}
 
             {% include 'notifications' %}
 
             <div class="form-group row">
-                <label for="example-text-input" class="col-4 col-sm-3 col-form-label">{{ __('Display Name') }}</label>
+                <label for="example-text-input" class="col-4 col-sm-3 col-form-label">نام کامل</label>
                 <div class="col-12 col-sm-9">
                     {{ form_text('display_name', null, {'class' : 'form-control'}) }}
                 </div>
             </div>
 
             <div class="form-group row">
-                <label for="example-tel-input" class="col-4 col-sm-3 col-form-label">{{ __('Username') }}</label>
+                <label for="example-tel-input" class="col-4 col-sm-3 col-form-label">نام کاربری</label>
                 <div class="col-12 col-sm-9">
                     {{ form_text('username', null, {'class' : 'form-control'}) }}
                     <small id="passwordHelpBlock" class="form-text text-muted">
-                        {{ __("This will be used as your profile page URL.") }}
+                        {{ __("نام کاربری شما ابزاری برای شنایی شما توسط دیگران است") }}
                     </small>
                 </div>
             </div>
 
             <div class="form-group row">
-                <label for="example-email-input" class="col-3 col-md-3 col-form-label">{{ __('Bio') }}</label>
+                <label for="example-email-input" class="col-3 col-md-3 col-form-label">توضیحات درباره خودتان</label>
                 <div class="col-12 col-sm-9">
                     {{ form_textarea('bio', null, {'class' : 'form-control', 'rows' : 3}) }}
                 </div>
             </div>
 
             <div class="form-group row">
-                <label class="col-sm-3 col-form-label">{{ __('Avatar') }}</label>
+                <label class="col-sm-3 col-form-label">عکس پروفایل</label>
                 <div class="col-sm-8">
                     <img style="width: 100px" class="rounded-circle" src="{{ user.avatar }}?t={{ date().timestamp }}"/>
                     <br/><br/>{{ form_file('image') }}<br/>
@@ -45,19 +73,17 @@
 
             <div class="form-group row mt-5 mb-0">
                 <label class="col-sm-3 col-form-label"></label>
-                <div class="col-sm-8">
-                    <h6 class="text-muted">{{ __('Private information') }}</h6>
-                </div>
+                
             </div>
             <div class="form-group row">
-                <label for="example-text-input" class="col-3 col-md-3 col-form-label">{{ __('Email') }}</label>
+                <label for="example-text-input" class="col-3 col-md-3 col-form-label">ایمیل</label>
                 <div class="col-12 col-sm-9">
                     {{ form_text('email', user.email, {'class' : 'form-control', 'disabled' : true}) }}
                 </div>
             </div>
 
             <div class="form-group row">
-                <label for="example-email-input" class="col-3 col-md-3 col-form-label">{{ __('Phone') }}</label>
+                <label for="example-email-input" class="col-3 col-md-3 col-form-label">شماره تلفن</label>
                 <div class="col-12 col-sm-9">
 
                     <div class="input-group">
@@ -72,16 +98,16 @@
             </div>
 
             <div class="form-group row">
-                <label class="col-sm-3 col-form-label">{{ __('Gender') }}</label>
+                <label class="col-sm-3 col-form-label">جنسیت</label>
                 <div class="col-sm-8">
-                    {{ form_select('gender', {'M' : 'Male', 'F' : 'Female', '' : 'Not specified'}, null, {'class' : 'form-control'}) }}
+                    {{ form_select('gender', {'M' : 'مرد', 'F' : 'زن', '' : 'مشخص نیست'}, null, {'class' : 'form-control'}) }}
                 </div>
             </div>
 
             <div class="form-group row">
                 <label class="col-sm-3 col-form-label">&nbsp;</label>
                 <div class="col-sm-8">
-                    {{ form_submit(__('Save profile'), {'class' : 'btn btn-primary'}) }}
+                    {{ form_submit(__('ذخیره'), {'class' : 'btn btn-primary'}) }}
 
                 </div>
             </div>
@@ -89,6 +115,44 @@
 
             {{ form_close() }}
 
+
         </div>
-    </div>
+                    
+
+
+
+ <div class="col-sm-3">
+
+
+<ul class="list-group list-group-flush">
+                        <li class="list-group-item {{ active(['account.edit_profile.index'], 'list-group-item-primary') }}">
+                            <a href="{{ route('account.edit_profile.index') }}" class="active">{{ __('ویرایش پروفایل') }}</a></li>
+
+                    </ul>
+          
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item {{ active(['account.listings.index'], 'list-group-item-primary') }}"><a href="{{ route('account.listings.index') }}">{{ __('شرکت های شما') }}</a></li>
+
+
+                    </ul>
+
+ </div>
+       
+
+
+
+
+            </div>
+        </div>
+        <!--<div id="map" class="colorlib-map"></div>-->
+        
+
+
+
+
+
+
+
+
+
 {% endblock %}

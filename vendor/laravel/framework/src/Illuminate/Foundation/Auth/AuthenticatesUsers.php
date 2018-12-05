@@ -8,6 +8,8 @@ use Illuminate\Validation\ValidationException;
 
 trait AuthenticatesUsers
 {
+    // Login is here 
+    
     use RedirectsUsers, ThrottlesLogins;
 
     /**
@@ -141,7 +143,7 @@ trait AuthenticatesUsers
      */
     public function username()
     {
-        return 'email';
+        return 'phone';
     }
 
     /**
@@ -180,3 +182,4 @@ trait AuthenticatesUsers
         return Auth::guard();
     }
 }
+

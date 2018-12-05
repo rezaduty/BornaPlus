@@ -52,7 +52,7 @@
                         <label class="bmd-label-floating">دسته بندی</label>
                             <select id="product_id" name="product_id">
 
-                  {% for cat in categories %}
+                  {% for cat in categories['data'] %}
 
          <option value="{{ cat['id'] }}">{{ cat['name'] }}</option>
 

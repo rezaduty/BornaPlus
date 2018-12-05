@@ -1,9 +1,48 @@
-{% extends "layouts.app" %}
-
-{% block search_bar %}
-{% endblock %}
+{% extends "v1.layouts.app" %}
 
 {% block content %}
+
+
+
+
+
+<aside id="colorlib-hero" style="min-height: 104px !important;">
+            <div class="flexslider">
+                <ul class="slides">
+                <li style="background-image: url(images/img_bg_2.jpg);">
+                    <div class="overlay"></div>
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-6 col-sm-12 col-md-offset-3 slider-text">
+                                <div class="slider-text-inner text-center">
+                                    <h1>Blog</h1>
+                                    <h2><span><a href="index.html">Home</a> | Blog</span></h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                </ul>
+            </div>
+        </aside>
+
+
+
+        <div id="colorlib-contact">
+            <div class="container">
+
+
+
+
+
+
+
+ <div class="col-sm-12">
+
+
+
+
+
 
 <div class="bg-light">
 <div class="container-fluid" style="max-width: 970px">
@@ -14,10 +53,10 @@
             <div class="col-sm-9 pl-sm-5 ">
                 <div class="row">
                     <div class="col-9">
-                        <h5 class="text-dark pt-4">{{ __("Editing Listing") }}</h5>
+                        <h5 class="text-dark pt-4">{{ __("اطلاعات تکمیلی") }}</h5>
                         <p class="text-muted pt-0 mb-2">{{ listing.title }} <a href="{{ listing.url }}" class="small">(view)</a>
                             {% if not listing.is_published %}
-                                {{ __("unpublished") }}
+                                {{ __("تایید نشده!") }}
                             {% endif %}
                         </p>
                         <div class="mb-3">
@@ -29,7 +68,7 @@
                         {% if not listing.is_published %}
                         {{ form_model(listing, {'route' : ['create.update', listing], 'class' : 'form', 'method' :
                         'PUT'}) }}
-                        <input type="submit" name="publish" value="{{ __('Publish')  }}" class="btn   btn-primary float-right">
+                        <input type="submit" name="publish" value="{{ __('تایید')  }}" class="btn   btn-primary float-right">
                                     {{ form_close() }}
                             {% else %}
                                 {{  form_model(listing, {'route' : ['create.update', listing], 'class' : 'form', 'method' : 'PUT' }) }}
@@ -56,31 +95,7 @@
                     </div>
                 </div>
                 <div class="col-sm-3 d-none d-sm-block">
-                    <div id="sidebar" class="p-0 mt-0">
-
-                        <div class="card w-100">
-                            <a data-scroll="details_section" class="card-body clickable {{ active(['create.edit']) }}" href="#details_section">
-                        <h6 class="card-title mb-1">{{ __("Listing Details") }}</h6>
-                        <p class="card-text small">{{ __("Enter the tile, description and location of your listing.") }}</p>
-                        </a>
-                        <a data-scroll="images_section" class="card-body clickable" href="#images">
-                            <h6 class="card-title mb-1">{{ __("Images") }}</h6>
-                            <p class="card-text  small">{{ __("Upload at least one image to make your listing stand out.") }}</p>
-                        </a>
-                        {%  if listings_form | length > 0 %}
-                        <a data-scroll="additional_section" class="card-body clickable" href="#additional_information">
-                            <h6 class="card-title mb-1">{{ __("Additional Information") }}</h6>
-                            <p class="card-text small">{{ __("Enter any relevant characteristics and/or specifications.") }}</p>
-                        </a>
-                        {% endif %}
-
-                        <a data-scroll="pricing_section" class="card-body clickable" href="#pricing_section">
-                            <h6 class="card-title mb-1">{{ __("Pricing") }}</h6>
-                            <p class="card-text small">{{ __("Set-up pricing and availability for your listing.") }}</p>
-                        </a>
-
-                    </div>
-
+                   
                 </div>
             </div>
 
@@ -93,7 +108,7 @@
                 <a id="images_section"></a>
                 {% include 'create.partials.images' %}
 
-                {%  if listings_form | length > 0 %}
+               <!-- {%  if listings_form | length > 0 %}
                 <a id="additional_section"></a>
                 {% include 'create.partials.additional' %}
                 {% endif %}
@@ -103,12 +118,12 @@
                 {% include 'create.partials.pricing_shipping' %}
                 {% include 'create.partials.pricing_variants' %}
                 {% include 'create.partials.services' %}
-
+--<
                 <div class="card mb-4">
 
                     <div class="card-body">
 
-                        <input type="submit" value="{{ __('Save listing')  }}" class="btn  btn-primary float-right">
+                        <input type="submit" value="{{ __('ذخیره')  }}" class="btn  btn-primary float-right">
 
                     </div>
 
@@ -120,8 +135,7 @@
 
             </div>
         </div>
-    </div>
-    </div>
+    
 
 
     <script>
@@ -163,6 +177,34 @@
             animate: 1000
         });
     </script>
+
+
+
+
+
+
+
+ </div>
+       
+
+
+
+
+            </div>
+        </div>
+       
+        
+
+
+
+
+
+
+
+
+
+
+
 
     {% endblock %}
 

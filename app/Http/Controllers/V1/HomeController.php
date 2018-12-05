@@ -30,7 +30,7 @@ class HomeController extends Controller
     public function __construct()
     {
         //$this->middleware('auth');
-        $this->client=new Client(['base_uri' => 'http://195.248.243.32:8000']);
+        $this->client=new Client(['base_uri' => 'http://172.16.238.1:8000']);
     }
 
    

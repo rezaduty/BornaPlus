@@ -6,7 +6,7 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-md-2">
-							<div id="colorlib-logo"><a href="index.html">BornaPlus</a></div>
+							<div id="colorlib-logo"><a href="/">BornaPlus</a></div>
 						</div>
 						<div class="col-md-10 text-right menu-1">
 							<ul>
@@ -26,6 +26,20 @@
 								<li class="{{ price_active }}"><a href="/price">قیمت های بازار</a></li>
 								<li class="{{ aboutus_active }}"><a href="/aboutus">درباره ما</a></li>
 								<li class="{{ contactus_active }}"><a href="/contactus">تماس با ما</a></li>
+								{% if auth_user() %}
+									<li class=""><a href="/account/edit_profile"><i class="icon-user-tie"></i></a></li>
+
+		                            <li class=""><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="icon-exit"></i></a></li>
+
+		                            
+					               <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+					                   {{ csrf_field() }}
+					               </form>
+
+		                        {% else %}
+		                        	<li class=""><a href="/login"><i class="icon-user-tie"></i></a></li>
+		                        {% endif %}
+								
 								<!--<li class="btn-cta"><a href="#"><span><i class="icon-cart"></i></span></a></li>-->
 							</ul>
 						</div>

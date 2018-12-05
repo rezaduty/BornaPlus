@@ -13,6 +13,7 @@ use Jrean\UserVerification\Traits\VerifiesUsers;
 use Jrean\UserVerification\Facades\UserVerification;
 use Illuminate\Http\Request;
 use MetaTag;
+use \Illuminate\Support\Facades\DB;
 
 class RegisterController extends Controller
 {
@@ -62,6 +63,7 @@ class RegisterController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users', #indisposable
             'password' => 'required|string|min:6|confirmed',
+            'phone' => 'required|string|min:6|max:50|unique:users'
             //'terms' => 'required',
         ], $messages);
     }
@@ -77,6 +79,7 @@ class RegisterController extends Controller
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
+            'phone' => $data['phone'],
             'password' => Hash::make($data['password']),
         ]);
     }
@@ -112,13 +115,17 @@ class RegisterController extends Controller
         $user->username = $request->get('name');
         $user->save();
 
-        UserVerification::generate($user);
+        //UserVerification::generate($user);
 
-        UserVerification::send($user, __('Welcome and Email Verification'));
+        //UserVerification::send($user, __('Welcome and Email Verification'));
 
         $user->assignRole('member'); //make a member
+ DB::table('users')
+                ->where('phone', $request['phone'])
+                ->update(['verified' => 1]);
 
-        return $this->registered($request, $user)
-            ?: redirect(route("email-verification.index"));
+return redirect('/');
+        //return $this->registered($request, $user)
+          //  ?: redirect(route("email-verification.index"));
     }
 }
