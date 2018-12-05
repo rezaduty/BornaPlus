@@ -2,3 +2,4 @@ laradock/
 .env
 node_modules/
 public/js/
+vendor/
