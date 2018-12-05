@@ -3,3 +3,4 @@ laradock/
 node_modules/
 public/js/
 vendor/
+storage/
