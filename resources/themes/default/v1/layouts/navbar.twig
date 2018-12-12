@@ -26,6 +26,10 @@
 								<li class="{{ price_active }}"><a href="/price">قیمت های بازار</a></li>
 								<li class="{{ aboutus_active }}"><a href="/aboutus">درباره ما</a></li>
 								<li class="{{ contactus_active }}"><a href="/contactus">تماس با ما</a></li>
+								{% if auth_user().hasAnyRole(['admin', 'moderator']) %}
+				                    <li class="nav-item"><a class="nav-link text-s" href="/panel/dashboard" target="_blank"><i class="mdi mdi-settings-outline mr-1" aria-hidden="true"></i></a></li>
+				                    
+				                {% endif %}
 								{% if auth_user() %}
 									<li class=""><a href="/account/edit_profile"><i class="icon-user-tie"></i></a></li>
 
