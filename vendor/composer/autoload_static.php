@@ -212,6 +212,7 @@ class ComposerStaticInit438cf63d186922acb997dbc67ea6ebed
             'GuzzleHttp\\Psr7\\' => 16,
             'GuzzleHttp\\Promise\\' => 19,
             'GuzzleHttp\\' => 11,
+            'GussRw\\LaravelRoutes\\' => 21,
             'Grimzy\\LaravelMysqlSpatial\\' => 27,
             'GrahamCampbell\\Manager\\' => 23,
             'Gerardojbaez\\Money\\' => 19,
@@ -703,6 +704,10 @@ class ComposerStaticInit438cf63d186922acb997dbc67ea6ebed
         'GuzzleHttp\\' => 
         array (
             0 => __DIR__ . '/..' . '/guzzlehttp/guzzle/src',
+        ),
+        'GussRw\\LaravelRoutes\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/gussrw/laravel-routes/src',
         ),
         'Grimzy\\LaravelMysqlSpatial\\' => 
         array (
@@ -2157,6 +2162,13 @@ class ComposerStaticInit438cf63d186922acb997dbc67ea6ebed
         'Grimzy\\LaravelMysqlSpatial\\Types\\Point' => __DIR__ . '/..' . '/grimzy/laravel-mysql-spatial/src/Types/Point.php',
         'Grimzy\\LaravelMysqlSpatial\\Types\\PointCollection' => __DIR__ . '/..' . '/grimzy/laravel-mysql-spatial/src/Types/PointCollection.php',
         'Grimzy\\LaravelMysqlSpatial\\Types\\Polygon' => __DIR__ . '/..' . '/grimzy/laravel-mysql-spatial/src/Types/Polygon.php',
+        'GussRw\\LaravelRoutes\\Commands\\GenerateDocs' => __DIR__ . '/..' . '/gussrw/laravel-routes/src/Commands/GenerateDocs.php',
+        'GussRw\\LaravelRoutes\\Config' => __DIR__ . '/..' . '/gussrw/laravel-routes/src/Config.php',
+        'GussRw\\LaravelRoutes\\Facade\\Routes' => __DIR__ . '/..' . '/gussrw/laravel-routes/src/Facade/Routes.php',
+        'GussRw\\LaravelRoutes\\LaravelRoutesServiceProvider' => __DIR__ . '/..' . '/gussrw/laravel-routes/src/LaravelRoutesServiceProvider.php',
+        'GussRw\\LaravelRoutes\\Models\\Param' => __DIR__ . '/..' . '/gussrw/laravel-routes/src/Models/Param.php',
+        'GussRw\\LaravelRoutes\\Models\\Route' => __DIR__ . '/..' . '/gussrw/laravel-routes/src/Models/Route.php',
+        'GussRw\\LaravelRoutes\\Routes' => __DIR__ . '/..' . '/gussrw/laravel-routes/src/Routes.php',
         'GuzzleHttp\\Client' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/Client.php',
         'GuzzleHttp\\ClientInterface' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/ClientInterface.php',
         'GuzzleHttp\\Cookie\\CookieJar' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/Cookie/CookieJar.php',
