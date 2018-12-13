@@ -1,0 +1,4 @@
+2018/12/03 16:09:57 [emerg] 1#1: unexpected end of file, expecting "}" in /etc/nginx/sites-available/default.conf:44
+2018/12/03 16:12:49 [emerg] 1#1: unexpected end of file, expecting "}" in /etc/nginx/sites-available/default.conf:44
+2018/12/03 16:45:15 [emerg] 1#1: unexpected end of file, expecting "}" in /etc/nginx/sites-available/default.conf:44
+2018/12/03 18:27:20 [emerg] 1#1: unknown directive "sten" in /etc/nginx/sites-available/default.conf:3
