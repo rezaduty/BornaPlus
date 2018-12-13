@@ -7,7 +7,8 @@ services:
 
 build:
   script:
+    - ls
+    - cd laradock
+    - ls
     - docker-compose up -d mysql nginx redis workspace
-  artifacts:
-    paths:
-      - laradock/
+
