@@ -1,0 +1,13 @@
+# .gitlab-ci.yml
+
+image: docker
+
+services:
+  - docker:dind
+
+build:
+  script:
+    - docker-compose up -d mysql nginx redis workspace
+  artifacts:
+    paths:
+      - laradock/
