@@ -1,5 +1,3 @@
 node_modules/
 public/js/
-laradock
 .env
-.gitlab-ci.yml
