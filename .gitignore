@@ -2,3 +2,4 @@ node_modules/
 public/js/
 .env
 public/js/ckeditor3
+laradock
