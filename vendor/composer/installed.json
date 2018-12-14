@@ -2644,51 +2644,6 @@
         "description": "MySQL spatial data types extension for Laravel."
     },
     {
-        "name": "gussrw/laravel-routes",
-        "version": "1.1.0",
-        "version_normalized": "1.1.0.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/GussRw/Documentation-Laravel-Routes.git",
-            "reference": "70e2f4a6dfb9971cf3f9883c3230c12a22ed0dad"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/GussRw/Documentation-Laravel-Routes/zipball/70e2f4a6dfb9971cf3f9883c3230c12a22ed0dad",
-            "reference": "70e2f4a6dfb9971cf3f9883c3230c12a22ed0dad",
-            "shasum": ""
-        },
-        "time": "2018-04-26T23:11:15+00:00",
-        "type": "laravel-plugin",
-        "extra": {
-            "laravel": {
-                "providers": [
-                    "GussRw\\LaravelRoutes\\LaravelRoutesServiceProvider"
-                ],
-                "aliases": {
-                    "Routes": "GussRw\\LaravelRoutes\\Facade\\Routes"
-                }
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "GussRw\\LaravelRoutes\\": "src/"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "proprietary"
-        ],
-        "authors": [
-            {
-                "name": "GussRw",
-                "email": "gussrw1@gmail.com"
-            }
-        ],
-        "description": "Documentation of Laravel Routes"
-    },
-    {
         "name": "guzzlehttp/guzzle",
         "version": "6.3.3",
         "version_normalized": "6.3.3.0",

@@ -96,13 +96,31 @@
 
 
 </div>
+
+
+
+
 <div class="col-md-6">
 	{% for post in lnews['data'] %}
-		{% if loop.index<=2 %}
+
+			  <div class="blog-card">
+		    <div class="meta">
+		      <div class="photo" style="background-image: url({{ post['thumbnail_url'] }})"></div>
+		      <ul class="details">
+		        
+		      </ul>
+		    </div>
+		    <a href="news/{{ post['title'] }}" target="_blank"><div class="description">
+		      <h1>{{ post['title'] }}</h1>
+		      <p> {{ post['content']|striptags|slice(0, 200) ~ '...' }}</p>
+		    </div>
+		    </a>
+		  </div>
 					  <div class="blog-card">
 		    <div class="meta">
 		      <div class="photo" style="background-image: url({{ post['thumbnail_url'] }})"></div>
 		      <ul class="details">
+		        
 		      </ul>
 		    </div>
 		    <a href="news/{{ post['title'] }}" target="_blank"><div class="description">
@@ -112,8 +130,9 @@
 		    </a>
 		  </div>
 
-		{% endif %}
+
      {% endfor %}
+
 </div>
 </div>
 		  	</div>
