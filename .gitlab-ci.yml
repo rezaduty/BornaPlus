@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 #
+=======
+>>>>>>> d2288d45d12b30171eb2f0b5427127f8c3fb70a9
 # .gitlab-ci.yml
 
 image: docker
@@ -8,5 +11,13 @@ services:
 
 build:
   script:
+<<<<<<< HEAD
     - cd laradock
     - docker-compose up -d mysql nginx redis workspace
+=======
+    - ls
+    - cd laradock
+    - ls
+    - docker-compose up -d mysql nginx redis workspace
+
+>>>>>>> d2288d45d12b30171eb2f0b5427127f8c3fb70a9

@@ -1,3 +1,7 @@
+<<<<<<< HEAD
 node_modules/
 public/js/
 .env
+=======
+public/js/ckeditor3
+>>>>>>> d2288d45d12b30171eb2f0b5427127f8c3fb70a9
