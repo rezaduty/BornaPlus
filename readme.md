@@ -1,6 +1,8 @@
 # Screenshot
 
-<p align="center"><img src=""></p>
+<p align="center"><img src="https://raw.githubusercontent.com/rezaduty/BornaPlus/master/front.png"></p>
+
+<p align="center"><img src="https://raw.githubusercontent.com/rezaduty/BornaPlus/master/dashboard.png"></p>
 
 <p align="center"><img src="https://marketplace-kit.s3.amazonaws.com/logo.png"></p>
 
