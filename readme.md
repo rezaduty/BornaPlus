@@ -1,4 +1,6 @@
 # Screenshot
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Frezaduty%2FBornaPlus.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Frezaduty%2FBornaPlus?ref=badge_shield)
+
 
 <p align="center"><img src="https://raw.githubusercontent.com/rezaduty/BornaPlus/master/front.png" width="400px"></p>
 
@@ -49,3 +51,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 </h1>
 
+
+
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Frezaduty%2FBornaPlus.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Frezaduty%2FBornaPlus?ref=badge_large)
